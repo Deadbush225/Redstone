@@ -95,7 +95,7 @@ const CompositeTubeFactory = {
 			// Matter.Body.setMass(composite_tube, 10);
 		});
 
-		for (let index = rows - 1; index > 4; ) {
+		for (let index = rows - 1; index > 2; ) {
 			// for (let index = 6; index > -1; ) {
 			// console.log(index);
 			// console.log(composite_tube_object_dict[index]);
@@ -244,7 +244,7 @@ export const Canvas = {
 				110,
 				Bodies,
 				engine,
-				10,
+				15,
 				4
 			);
 
@@ -253,7 +253,7 @@ export const Canvas = {
 				110,
 				Bodies,
 				engine,
-				10,
+				15,
 				5
 			);
 
@@ -262,7 +262,7 @@ export const Canvas = {
 				110,
 				Bodies,
 				engine,
-				10,
+				15,
 				3
 			);
 

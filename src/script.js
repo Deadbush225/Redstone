@@ -1,5 +1,5 @@
-import "https://code.jquery.com/jquery-3.6.3.slim.js";
-import "https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js";
+// import "https://code.jquery.com/jquery-3.6.3.slim.js";
+// import "https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js";
 
 // import "../node_modules/flickity/dist/flickity.pkgd.min.js"; // //todo: make this persist on build
 
@@ -21,25 +21,44 @@ window.onload = () => {
 	Filters.set();
 	Controls.set();
 
+	// function mv(event) {
+	// 	console.log(event);
+
+	// 	console.log($("html"));
+
+	// 	$("html").animate(
+	// 		{
+	// 			scrollTop: event.deltaY,
+	// 		},
+	// 		800
+	// 	);
+	// }
+
 	document.getElementById("particles").onwheel = function (event) {
-		event.preventDefault();
-		window.scrollBy(event.deltaX, event.deltaY);
+		// event.preventDefault();
+		// window.scrollBy(event.deltaX, event.deltaY);
+		// mv(event);
+		window.addEventListener("DOMMouseScroll", wheel, true);
 	};
 
-	document.getElementById("particles").onmousewheel = function (event) {
-		event.preventDefault();
-		window.scrollBy(event.deltaX, event.deltaY);
-	};
+	// document.getElementById("particles").onmousewheel = function (event) {
+	// 	event.preventDefault();
+	// 	// window.scrollBy(event.deltaX, event.deltaY);
+	// 	mv(event);
+	// };
 
 	document.getElementById("static").onwheel = function (event) {
-		event.preventDefault();
-		window.scrollBy(event.deltaX, event.deltaY);
+		// event.preventDefault();
+		// window.scrollBy(event.deltaX, event.deltaY);
+		// mv(event);
+		window.addEventListener("DOMMouseScroll", wheel, true);
 	};
 
-	document.getElementById("static").onmousewheel = function (event) {
-		event.preventDefault();
-		window.scrollBy(event.deltaX, event.deltaY);
-	};
+	// document.getElementById("static").onmousewheel = function (event) {
+	// 	event.preventDefault();
+	// 	// window.scrollBy(event.deltaX, event.deltaY);
+	// 	mv(event);
+	// };
 };
 
 // declare global {

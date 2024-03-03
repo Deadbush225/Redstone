@@ -10,7 +10,7 @@ export const Config = {
 	smallCircleDistance: 78,
 	smallCircleRadius: 10,
 	largeCircleRadius: 30,
-	particleRadius: 6,
+	particleRadius: 8,
 	particleCount: 400,
 	// particleCount: 100,
 	particlesStreamInitialWidth: 50,

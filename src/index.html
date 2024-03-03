@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Redstone!</title>
+		<!-- <script
+			src="https://code.jquery.com/jquery-3.6.3.slim.js"
+			integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc="
+			crossorigin="anonymous"
+		></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js"></script> -->
+
+		<script src="https://cdn.jsdelivr.net/npm/matter-js@0.18.0/build/matter.min.js"></script>
+
+		<!-- <script src="jsfluid/physics.js"></script>
+		<script src="jsfluid/config.js"></script>
+		<script src="jsfluid/canvas.js"></script>
+		<script src="jsfluid/filters.js"></script>
+		<script src="jsfluid/controls.js"></script> -->
+
+		<link rel="icon" type="image/x-icon" href="./love.png" />
+
+		<!-- <script type="module" src="./script.js"></script> -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/matter-js@0.18.0/build/matter.min.js"></script> -->
+	</head>
+	<body>
+		<!-- <div class="title">
+			Canvas Liquid Effect<br />
+			Matter.js + SVG Filters
+		</div> -->
+		<ul class="navbar">
+			<li class="navitems"><a href="#home">Home</a></li>
+			<li class="navitems"><a href="#news">News</a></li>
+			<li class="navitems"><a href="#contact">Contact</a></li>
+			<li class="navitems" style="float: right">
+				<a class="active" href="#about">About</a>
+			</li>
+		</ul>
+
+		<div class="contents">
+			<h1 id="section-title">Capillary Action</h1>
+			<!-- video -->
+			<h2>Demonstration</h2>
+			<div class="video-wrapper">
+				<iframe
+					width="560"
+					height="315"
+					src="https://www.youtube.com/embed/mtB8rfI2-qU?si=huuisI5xYpWCt82v"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				></iframe>
+			</div>
+			<!-- Canvas -->
+			<h2>Experiment</h2>
+			<div class="experiment">
+				<div class="canvas-wrapper">
+					<canvas id="static"></canvas>
+					<canvas id="particles"></canvas>
+				</div>
+				<div class="checklist">
+					<div class="steps">
+						<div class="emoticon">✅</div>
+						<div class="step-number">1.</div>
+						<div class="desc">
+							There are 3 types of tubes with varying width
+						</div>
+					</div>
+					<div class="steps">
+						<div class="emoticon">✅</div>
+						<div class="step-number">2.</div>
+						<div class="desc">
+							One by one, drag the test tubes into the liquid
+						</div>
+					</div>
+					<div class="steps">
+						<div class="emoticon">✅</div>
+						<div class="step-number">3.</div>
+						<div class="desc">
+							Compare which of the tubes have the highest liquid rise
+						</div>
+					</div>
+					<!-- <div class="steps">
+						<div class="emoticon">⭕</div>
+						<div class="step-number">4.</div>
+						<div class="desc">Nothing atm</div>
+					</div>
+					<div class="steps">
+						<div class="emoticon">⭕</div>
+						<div class="step-number">5.</div>
+						<div class="desc">Nothing atm</div>
+					</div> -->
+				</div>
+			</div>
+			<!-- <div class="controls">
+                <div class="action">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M20.49 16a1.41 1.41 0 0 0-1.44 1.5 1.42 1.42 0 0 0 1.44 1.5 1.5 1.5 0 0 0 0-3zm-1.82-3.76c1.36-.14 2.57-.48 2.06-2s-1.47-1.24-2.39-.9-1.81.76-2.08-.06c-.46-1.41 1.46-2 3.13-2.78S22.49 4.84 21 3s-2.44-.71-3.53.75-2.23 3.3-3.8 3c-1.1-.21-1.5-1.38-2-2.41s-.95-1.92-2.25-1.56C8 3.15 8.36 4 8.94 5s1.33 1.88.51 2.42c-1 .65-1.86-.18-2.7-1S5.07 4.9 4 5.76a1.21 1.21 0 0 0-.25 1.62 2.72 2.72 0 0 1 .64 1.49c0 .63-.64.81-1.26 1.06S2 10.5 2 11.29c.09 1.3 1 1.48 1.84 1.5s1.79-.13 2 .52a3.18 3.18 0 0 1-.9 3.19c-.58.68-1 1.21.1 2.12 1.22.58 2-.21 2.61-1S8.77 16 9.49 16.43c.9.46.54 1.76.31 3s-.31 2.38 1.09 2.57c1.77-.21 1.75-1.17 1.47-2.28s-.83-2.35-.12-3.13 1.67-.14 2.75.5 2.23 1.12 3.14-.39c.61-1.28-.06-1.85-.85-2.28s-1.7-.71-1.59-1.42 1.62-.62 2.98-.76zm-6.46 1.81h-1.62V10.4h-.74V9h2.36z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="tooltip">Toggle Filter (Static Bodies)</div>
+                </div>
+                <div class="action">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M18.67 12.24c1.36-.14 2.57-.48 2.06-2s-1.47-1.24-2.39-.9-1.81.76-2.08-.06c-.46-1.41 1.46-2 3.13-2.78S22.49 4.84 21 3s-2.44-.71-3.53.75-2.23 3.3-3.8 3c-1.1-.21-1.5-1.38-2-2.41s-.95-1.92-2.25-1.56C8 3.15 8.36 4 8.94 5s1.33 1.88.51 2.42c-1 .65-1.86-.18-2.7-1S5.07 4.9 4 5.76a1.21 1.21 0 0 0-.25 1.62 2.72 2.72 0 0 1 .64 1.49c0 .63-.64.81-1.26 1.06S2 10.5 2 11.29c.09 1.3 1 1.48 1.84 1.5s1.79-.13 2 .52a3.18 3.18 0 0 1-.9 3.19c-.58.68-1 1.21.1 2.12 1.22.58 2-.21 2.61-1S8.77 16 9.49 16.43c.9.46.54 1.76.31 3s-.31 2.38 1.09 2.57c1.77-.21 1.75-1.17 1.47-2.28s-.83-2.35-.12-3.13 1.67-.14 2.75.5 2.23 1.12 3.14-.39c.61-1.28-.06-1.85-.85-2.28s-1.7-.71-1.59-1.42 1.62-.62 2.98-.76zM12.89 14H9.32v-1.15a11.43 11.43 0 0 0 1.47-1.26 1.6 1.6 0 0 0 .53-1.05.4.4 0 0 0-.07-.26.23.23 0 0 0-.19-.09.25.25 0 0 0-.22.15.75.75 0 0 0-.05.43H9.3a2.1 2.1 0 0 1 .28-1.06 1.57 1.57 0 0 1 .67-.61 2.13 2.13 0 0 1 .92-.19 1.74 1.74 0 0 1 1.29.42 1.54 1.54 0 0 1 .41 1.09 2.22 2.22 0 0 1-.44 1.31 4 4 0 0 1-1.12 1h1.58zm7.6 2a1.41 1.41 0 0 0-1.44 1.5 1.42 1.42 0 0 0 1.44 1.5 1.5 1.5 0 0 0 0-3z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="tooltip">Toggle Filter (Particles)</div>
+                </div>
+                <div class="action">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M13,2.05V4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03V2.05M5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37L5.67,19.74M7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74M5.69,7.1L4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1M4.06,13H2.06C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13M10,16.5L16,12L10,7.5V16.5Z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="tooltip">Change Time Scale</div>
+                </div>
+            </div>
+            <div class="status">
+                <div class="property">
+                    Filter (Static Bodies): <span class="value">enabled</span>
+                </div>
+                <div class="property">
+                    Filter (Particles): <span class="value">enabled</span>
+                </div>
+                <div class="property">Time Scale: <span class="value">1</span></div>
+            </div> -->
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="particles-filter">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+						<feColorMatrix
+							in="blur"
+							mode="matrix"
+							values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -4"
+							result="goo"
+						/>
+					</filter>
+				</defs>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="static-filter">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+						<feColorMatrix
+							in="blur"
+							mode="matrix"
+							values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -6"
+							result="goo"
+						/>
+						<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+					</filter>
+				</defs>
+			</svg>
+			<p>
+				<tab></tab>Certainly! Capillary action is a fascinating phenomenon that
+				occurs when a liquid spontaneously flows into a narrow tube or porous
+				material, without requiring the force of gravity. Let’s dive into the
+				details:
+			</p>
+			<h3>Definition:</h3>
+
+			<p>
+				<tab></tab>Capillary action, also known as capillarity, capillary
+				motion, or wicking, arises due to the interplay of two types of forces:
+			</p>
+
+			<ul>
+				<li class="indent-bullet">
+					Cohesive forces: These forces hold the liquid molecules together.
+				</li>
+				<li class="indent-bullet">
+					Adhesive forces: These forces exist between the liquid and the
+					material of the tube or porous substance.
+				</li>
+			</ul>
+			<p>
+				<tab></tab>When these forces combine, they pull the liquid into the tube
+				or material, allowing it to rise against gravity.
+			</p>
+			<h3>Examples:</h3>
+			<ul>
+				<li>
+					Paper and Plaster: Capillary action causes water to be drawn into
+					paper and plaster, both of which are porous materials.
+				</li>
+				<li>
+					Paintbrush Wicking: Ever notice how paint travels between the bristles
+					of a paintbrush? That’s capillary action at work.
+				</li>
+				<li>
+					Water Movement Through Sand: Capillarity enables water to move through
+					sand particles.
+				</li>
+				<li>
+					Celery Stalk Experiment: Try placing a celery stalk in colored water.
+					Observe how the dye travels up the stalk due to capillary action.
+				</li>
+				<li>
+					White Carnations: Similarly, you can color white carnations by placing
+					them in dyed water. The color migrates to the petals via capillary
+					action.
+				</li>
+				<li>
+					Paper Towel Wicking: When you use a paper towel to mop up a spill,
+					it’s capillary action that draws the liquid upward.
+				</li>
+			</ul>
+		</div>
+
+		<script type="module" src="./script.js"></script>
+
+		<!-- <script>
+			window.onload = () => {
+				Canvas.init();
+				Canvas.draw();
+				Filters.set();
+				Controls.set();
+			};
+		</script> -->
+	</body>
+	<!-- <script type="module" src="./scripts/fillup.ts"></script> -->
+	<!-- <script defer type="module" src="./script.ts"></script> -->
+</html>

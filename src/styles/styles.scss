@@ -1,0 +1,412 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ GENERAL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+body,
+html {
+    color: rgb(23, 136, 217);
+    background-color: #181e55;
+    height: 100%;
+    // font-family: ;
+    font-family: "Poppins", sans-serif;
+    // font-size: 0.5em;
+    font-weight: 500;
+    // overflow-y: hidden;
+    margin: 0;
+}
+
+.main-container {
+    // flex-direction: column;
+    // display: flex;
+    display: grid;
+    width: auto;
+    // height: auto;
+    height: 100%;
+}
+
+// .main-container div {
+//     //  padding: 50px;
+//     //  background-color: rgba(0,0,0,0.5);
+//     grid-row-start: 1;
+//     grid-column-start: 1;
+// }
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    .letter p {
+        font-size: 0.90em;
+    }
+
+    .letter {
+        padding: 2em;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1170px) {
+    .letter p {
+        font-size: 0.85em;
+    }
+
+    .letter {
+        padding: 1.8em
+    }
+}
+
+@media screen and (max-width: 1035px) {
+    .letter p {
+        font-size: 0.8em;
+    }
+
+    .letter {
+        padding: 1.6em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .letter p {
+        font-size: 0.75em;
+    }
+
+    .letter {
+        padding: 1.4em;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .letter p {
+        font-size: 0.7em;
+    }
+
+    .letter {
+        padding: 1.2em;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .letter p {
+        font-size: 0.65em;
+    }
+
+    .letter {
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .letter p {
+        font-size: 0.6em;
+    }
+
+    .letter {
+        padding: 0.8em;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .letter p {
+        font-size: 0.55em;
+    }
+
+    .letter {
+        padding: 0.6em;
+    }
+}
+
+.flex-container {
+    width: 100%;
+    height: 100vh; // minus the innate margin
+    // height: calc(100% - 16px); // minus the innate margin
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    z-index: 2;
+
+
+    .letter {
+        background-color: #4a407a;
+        width: 75vw;
+        height: 75vh;
+        // padding: 2em;
+        border-radius: 1em;
+        font-size: 2em;
+        opacity: 80%;
+
+        #greeting {
+            margin-bottom: 4vh;
+        }
+
+        p {
+
+            font-family: "Rubik", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+
+
+            i {
+                display: block;
+                line-height: 1.5em;
+            }
+
+        }
+
+        #body {
+            text-align: justify;
+            line-height: 1.4em;
+
+            .tab {
+                display: inline-block;
+                margin-left: 10vw;
+            }
+        }
+
+        .right_indent {
+            text-align: right;
+        }
+
+        .farewell {
+            margin-top: 4vh;
+        }
+    }
+
+}
+
+.movegradient {
+    background: linear-gradient(132deg, #e951cb, #5262d1, #9545da, #358ebc);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 29s ease infinite;
+    -moz-animation: AnimationName 29s ease infinite;
+    -o-animation: AnimationName 29s ease infinite;
+    animation: AnimationName 29s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+// .gallery-container {
+//     z-index: 0;
+// }
+
+// #type-container {
+//     position: fixed;
+//     flex-direction: column;
+//     //     #description {
+//     //         text-align: center;
+//     //         width: auto;
+//     //     }
+// }
+
+// #typedtext {
+//     text-align: center;
+//     font-size: 3em;
+// }
+
+// .gray {
+//     background-color: black;
+//     opacity: 50%;
+//     display: block;
+//     position: fixed;
+
+//     height: 100vh;
+//     width: 100vw;
+
+//     z-index: 1;
+
+// }
+
+// .blur {
+//     background: radial-gradient(50% 40% at center, #000000, transparent);
+//     height: 100vh;
+//     width: 100vw;
+//     position: fixed;
+//     z-index: 1;
+// }
+
+.card-flash {
+    background: linear-gradient(132deg, #4a407a, #4a407a, #4a407a, #4a407a, #4a407a, #64579d, #4a407a, #4a407a, #4a407a, #4a407a, #4a407a, #4a407a);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: AnimationName 9s ease infinite;
+    -moz-animation: AnimationName 9s ease infinite;
+    -o-animation: AnimationName 9s ease infinite;
+    animation: AnimationName 9s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SCROLLBAR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    // color: #181e55;
+    background-color: #181e55;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a3a7c6;
+    border-radius: 5px;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TYPING EFFECT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+h3 {
+    font-size: 2em;
+    color: rgb(217, 23, 217);
+
+    margin: 0 // font-weight: 800;
+}
+
+#emoji {
+    font-size: 2em;
+}
+
+.txt {
+    //font-weight: 900;
+    // }
+
+    // div.text {
+    background: linear-gradient(-45deg, #eabc73, #ff9764, #ffa641, #ffb056);
+    background-size: 300%;
+    // font-family: Arial, Helvetica, sans-serif;
+    // font-weight: 900;
+    // font-size: 2em;
+    // font-size: 5vw;
+    // letter-spacing: -5px;
+    // text-transform: uppercase;
+    background-clip: text; // compatibility below
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animated_text 10s ease-in-out infinite;
+    -moz-animation: animated_text 10s ease-in-out infinite;
+    -webkit-animation: animated_text 10s ease-in-out infinite;
+}
+
+@keyframes animated_text {
+    0% {
+        background-position: 0px 50%;
+    }
+
+    25% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 0px 50%;
+    }
+
+    75% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0px 50%;
+    }
+}

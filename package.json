@@ -1,0 +1,36 @@
+{
+	"name": "ForRhixie",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"bld": "vite build && node CopyAssets.js",
+		"preview": "vite preview",
+		"cmt": "git add . && git commit -m \"[automated push]\"",
+		"commit": "git add . && git commit"
+	},
+	"devDependencies": {
+		"@types/js-cookie": "^3.0.3",
+		"@types/node": "^20.10.5",
+		"bun-types": "latest",
+		"flickity": "^2.3.0",
+		"jquery": "^3.6.4",
+		"sass": "^1.61.0",
+		"typescript": "^4.9.3",
+		"vite": "^4.5.1"
+	},
+	"dependencies": {
+		"@rollup/plugin-commonjs": "^25.0.7",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@types/flickity": "^2.2.11",
+		"@types/jquery": "^3.5.16",
+		"jquery-bridget": "^3.0.1",
+		"jquery.waitforimages": "^2.4.0",
+		"js-cookie": "^3.0.1",
+		"matter-js": "^0.19.0",
+		"typeit": "^8.8.0"
+	},
+	"module": "index.ts"
+}

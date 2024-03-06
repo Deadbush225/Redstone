@@ -1,14 +1,16 @@
-# E💗Rhixie - your partner in crime
+# Let the redstones SURGE!!!
 
 ---
 
-🚀 Deployment Link: https://deadbush225.github.io/ForRhixie/
+🚀 Deployment Link: https://redstone-action.surge.sh
 
 ⚙ Technology Stack:
 
-- TypeScript
+- TypeIt
+- JQuery
+- Flickity
 - SASS
-- WebPack
+- Vite
 - Git & GitHub
 
 ---

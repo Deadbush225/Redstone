@@ -1,0 +1,139 @@
+<h1 id="section-title">Surface Tension</h1>
+<!-- video -->
+<h2>Demonstration</h2>
+<div class="video-wrapper">
+	<!-- <iframe
+		width="700"
+		height="400"
+		src="https://www.youtube.com/embed/mtB8rfI2-qU?si=huuisI5xYpWCt82v"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen
+	></iframe> -->
+</div>
+<!-- Canvas -->
+<h2>Experiment</h2>
+<div class="experiment">
+	<div class="canvas-wrapper">
+		<canvas id="static"></canvas>
+		<canvas id="particles"></canvas>
+	</div>
+	<div class="checklist">
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" checked />
+			</div>
+			<div class="step-number">1.</div>
+			<div class="desc">
+				There's a triangle pin that you can use to "pop" the watter bubble
+			</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">2.</div>
+			<div class="desc">Pop the water bubble using the pin</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">3.</div>
+			<div class="desc">Observe what will happen to the water bubble😉</div>
+		</div>
+		<!-- <div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">4.</div>
+			<div class="desc">Nothing atm</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">5.</div>
+			<div class="desc">Nothing atm</div>
+		</div> -->
+	</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="particles-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -4"
+				result="goo"
+			/>
+		</filter>
+	</defs>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="static-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -6"
+				result="goo"
+			/>
+			<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+		</filter>
+	</defs>
+</svg>
+<p>
+	<tab></tab>Surface tension is a physical characteristic representing the force
+	required to expand the surface of a liquid per unit area. Surface tension
+	arises from cohesive forces between liquid molecules, causing a thin, elastic
+	layer on the surface. This phenomenon, driven by molecules at the surface
+	experiencing a net inward force, affects various behaviors like capillary
+	action and droplet shape.
+</p>
+<h3>Definition:</h3>
+
+<p>
+	<tab></tab>Capillary action, also known as capillarity, capillary motion, or
+	wicking, arises due to the interplay of two types of forces:
+</p>
+
+<ul>
+	<li class="indent-bullet">
+		Cohesive forces: These forces hold the liquid molecules together.
+	</li>
+	<li class="indent-bullet">
+		Adhesive forces: These forces exist between the liquid and the material of
+		the tube or porous substance.
+	</li>
+</ul>
+<p>
+	<tab></tab>When these forces combine, they pull the liquid into the tube or
+	material, allowing it to rise against gravity.
+</p>
+<h3>Examples:</h3>
+<ul>
+	<li>
+		Paper and Plaster: Capillary action causes water to be drawn into paper and
+		plaster, both of which are porous materials.
+	</li>
+	<li>
+		Paintbrush Wicking: Ever notice how paint travels between the bristles of a
+		paintbrush? That’s capillary action at work.
+	</li>
+	<li>
+		Water Movement Through Sand: Capillarity enables water to move through sand
+		particles.
+	</li>
+	<li>
+		Celery Stalk Experiment: Try placing a celery stalk in colored water.
+		Observe how the dye travels up the stalk due to capillary action.
+	</li>
+	<li>
+		White Carnations: Similarly, you can color white carnations by placing them
+		in dyed water. The color migrates to the petals via capillary action.
+	</li>
+	<li>
+		Paper Towel Wicking: When you use a paper towel to mop up a spill, it’s
+		capillary action that draws the liquid upward.
+	</li>
+</ul>

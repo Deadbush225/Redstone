@@ -21,15 +21,15 @@ const outDir = resolve(__dirname, "docs");
 // 	return file.endsWith(".jpg");
 // });
 
-// const htmlFiles = fs
-// 	.readdirSync(resolve(root, "pages"))
-// 	.filter((file) => {
-// 		console.log(file);
-// 		return file.endsWith(".html");
-// 	})
-// 	.map((file, index) => {
-// 		return ["html_page" + index, resolve(root, "pages", file)];
-// 	});
+const htmlFiles = fs
+	.readdirSync(resolve(root, "pages"))
+	.filter((file) => {
+		console.log(file);
+		return file.endsWith(".html");
+	})
+	.map((file, index) => {
+		return ["html_page" + index, resolve(root, "pages", file)];
+	});
 
 export default defineConfig({
 	// plugins: [htmlTemplate()],
@@ -68,7 +68,7 @@ export default defineConfig({
 
 				index: resolve(root, "index.html"),
 
-				// ...Object.fromEntries(htmlFiles),
+				...Object.fromEntries(htmlFiles),
 
 				// ...Object.fromEntries(assetsFiles),
 			},

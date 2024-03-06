@@ -46,10 +46,22 @@ export const Physics = (bodies) => {
 		engine.timing.timeScale = scale;
 	};
 
+	const reSEAT = function () {
+		console.log("COMPOSITES");
+		console.log(engine);
+		console.log(engine.world);
+		console.log(engine.world.composites);
+		Matter.Composite.clear(engine.world, false, true);
+		engine.world.composites.forEach((composite) => {
+			Matter.Composite.remove(composite, false, true);
+		});
+	};
+
 	return {
 		addBodies,
 		removeBody,
 		timeScale,
+		reSEAT,
 		initialBodies,
 	};
 };

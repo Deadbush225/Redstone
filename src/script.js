@@ -6,7 +6,7 @@
 //import Flickity from "flickity"; // todo: make this persist in dev
 // import Matter from "matter-js";
 import { Canvas } from "./jsfluid/canvas.js";
-import { Controls } from "./jsfluid/controls.js";
+// import { createCanvas } from "./jsfluid/canvas.js";
 import { Filters } from "./jsfluid/filters.js";
 
 import "./styles/jsfluid.scss";
@@ -15,11 +15,112 @@ import "./styles/jsfluid.scss";
 // import "./styles/styles.scss";
 // import "./scripts/interfaces.ts";
 
+let canvas = null;
+
 window.onload = () => {
-	Canvas.init();
-	Canvas.draw();
-	Filters.set();
-	Controls.set();
+	let last_hash =
+		sessionStorage.last_hash === undefined ? "home" : sessionStorage.last_hash;
+	// sessionStorage.pageHistory === undefined ? [] : sessionStorage.pageHistory;
+
+	function changeContent(pagename) {
+		console.log("changing content...");
+
+		$.get(`./pages/${pagename}.html`, function (data) {
+			//do something after getting the result
+			$("#contents").html($(data));
+
+			// page_list.push(pagename);
+			window.location.hash = pagename;
+			sessionStorage.last_hash = pagename;
+			// console.log("window.location.hash");
+			console.log(window.location.hash + "HASH");
+
+			// if (Canvas !== null) {
+			//     Canvas
+			// }
+
+			// Regisster events - unbind existing so that they won't be triggered when jquery detected that they are already bound
+			$("#home")
+				.off()
+				.on("click", () => {
+					console.log("HOME IS CLICKED");
+					changeContent("home");
+				});
+			$(".CA")
+				.off()
+				.on("click", () => {
+					console.log("CAPILLARY ACTION IS CLICKED");
+					changeContent("capillary-action");
+				});
+			$(".ST")
+				.off()
+				.on("click", () => {
+					console.log("SURFACE TENSION IS CLICKED");
+					changeContent("surface-tension");
+				});
+
+			if (pagename !== "home") {
+				// if (canvas !== null) {
+				// 	console.log("deleting pre physiscs");
+				// 	// canvas.particles = null;
+				// 	// canvas.particles = null;
+				// 	// Matter.Composite.clear(canvas.physics.engine, false, true);
+				// 	// delete canvas.physics;
+				// }
+				// if (canvas === null) {
+				// 	// canvas = createCanvas();
+				// }
+				Canvas.reset();
+				Canvas.init(pagename);
+				Canvas.draw();
+				Filters.set();
+				// Controls.set();
+
+				document.getElementById("particles").onwheel = function (event) {
+					window.addEventListener("wheel", null, true);
+				};
+
+				document.getElementById("static").onwheel = function (event) {
+					window.addEventListener("wheel", null, true);
+				};
+			}
+
+			if (pagename === "home") {
+				new TypeIt("#title", {
+					speed: 75,
+					delay: 500,
+					// loop: true,
+				})
+					.type("Redstone SURGE!")
+					.pause(300)
+					// .type("<br id='de'>")
+					.type(
+						"<span id='greet' style='font-size: 0.8em; white-space: pre-line'>\nEnjoy your visit!</span>"
+					)
+					.pause(500)
+					.delete("#greet")
+					// .delete("#de")
+					.go();
+
+				$(".main-carousel").flickity({
+					// options
+					cellAlign: "center",
+					// contain: true,
+					wrapAround: true,
+				});
+			}
+		});
+	}
+
+	changeContent(last_hash);
+
+	// changeContent("capillary-action");
+	// changeContent("surface-tension");
+
+	// $("#contents")
+
+	// .load(function () {
+	// });
 
 	// function mv(event) {
 	// 	console.log(event);
@@ -33,26 +134,6 @@ window.onload = () => {
 	// 		800
 	// 	);
 	// }
-
-	document.getElementById("particles").onwheel = function (event) {
-		// event.preventDefault();
-		// window.scrollBy(event.deltaX, event.deltaY);
-		// mv(event);
-		window.addEventListener("DOMMouseScroll", wheel, true);
-	};
-
-	// document.getElementById("particles").onmousewheel = function (event) {
-	// 	event.preventDefault();
-	// 	// window.scrollBy(event.deltaX, event.deltaY);
-	// 	mv(event);
-	// };
-
-	document.getElementById("static").onwheel = function (event) {
-		// event.preventDefault();
-		// window.scrollBy(event.deltaX, event.deltaY);
-		// mv(event);
-		window.addEventListener("DOMMouseScroll", wheel, true);
-	};
 
 	// document.getElementById("static").onmousewheel = function (event) {
 	// 	event.preventDefault();

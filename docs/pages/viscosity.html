@@ -1,0 +1,236 @@
+<h1 id="section-title">Viscosity</h1>
+<!-- video -->
+<h2>Demonstration</h2>
+<div class="video-wrapper">
+	<!-- <iframe
+		width="700"
+		height="400"
+		src="https://www.youtube.com/embed/mtB8rfI2-qU?si=huuisI5xYpWCt82v"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen
+	></iframe> -->
+</div>
+<!-- Canvas -->
+<h2>Experiment</h2>
+<div class="experiment">
+	<div class="canvas-wrapper">
+		<canvas id="static"></canvas>
+		<canvas id="particles"></canvas>
+	</div>
+	<div class="checklist">
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" checked />
+			</div>
+			<div class="step-number">1.</div>
+			<div class="desc">
+				There's a triangle pin that you can use to "pop" the watter bubble
+			</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">2.</div>
+			<div class="desc">Pop the water bubble using the pin</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">3.</div>
+			<div class="desc">Observe what will happen to the water bubble😉</div>
+		</div>
+		<!-- <div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">4.</div>
+			<div class="desc">Nothing atm</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">5.</div>
+			<div class="desc">Nothing atm</div>
+		</div> -->
+	</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="particles-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -4"
+				result="goo"
+			/>
+		</filter>
+	</defs>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="static-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -6"
+				result="goo"
+			/>
+			<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+		</filter>
+	</defs>
+</svg>
+<p>
+	<tab></tab>Viscosity, a measure of a liquid's resistance to flow, arises from
+	the interplay of several factors. The strength of intermolecular forces, the
+	size and shape of the molecules, and temperature all play crucial roles. As
+	temperature increases, the intermolecular forces are weakened by the increased
+	kinetic energy of the molecules, allowing them to move past each other more
+	easily, resulting in a decrease in viscosity. This phenomenon is evident in
+	everyday life, where honey flows more readily when warmed compared to its
+	sluggish movement at room temperature.
+</p>
+<h3>Factors affecting Surface Tension:</h3>
+
+<p>
+	Surface tension, also known as surface energy, is influenced by factors such
+	as:
+</p>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="/pages/surfactant.jpg" alt="surfactant.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">1. Surfarcants</h3>
+		<p class="c_desc">
+			<tab></tab>The term "surfactant" refers to surface-active agents. They are
+			amphiphilic compounds, with hydrophilic and hydrophobic chemical
+			structures.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="/pages/impurities.jpg" alt="impurities.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">2. Impurities</h3>
+		<p class="c_desc">
+			<tab></tab>Impurities, whether on the surface or dissolved in a substance,
+			directly impact the liquid's surface tension.
+		</p>
+		<div class="c_callout">
+			Adding highly soluble impurities to water, for instance, leads to an
+			increase in its surface tension. The presence of impurities in a liquid
+			has a notable effect on surface tension.
+		</div>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="/pages/tempeerature.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Temperature</h3>
+		<p class="c_desc">
+			<tab></tab>The temperature is an important factor in affecting the surface
+			tension of a liquid. In general, surface tension decreases as temperature
+			rises and increases as temperature falls.
+		</p>
+		<div class="c_callout">
+			Temperature affects it, decreasing with higher temperature and increasing
+			with lower temperature. Dissolved substances and oxidation increase it.
+			Oxygen lowers surface tension. Impurities, soluble or not, impact surface
+			tension. Contaminants like oil reduce surface tension.
+		</div>
+	</div>
+</div>
+
+<h3>WHO???</h3>
+<div class="who">
+	<div class="figure">
+		<img src="/pages/agnes_pockels.jpg" alt="agnes_pockels.jpg" />
+		<h6 class="wh-name">Agnes Pockels</h6>
+	</div>
+	<p class="wh-desc">
+		<emp>Agnes Pockels</emp> is a self-trained chemist, an individual behind the
+		first discovery of the surface tension. She observed the swift movement of
+		water when soap came into contact with it, marking the day she made this
+		observation.
+	</p>
+</div>
+
+<h3>Other Experiments:</h3>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="/pages/milk-fireworks.png" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">1. Milk Fireworks</h3>
+		<p class="c_desc">
+			<tab></tab>Milk fireworks experiments involve the use of milk and food
+			coloring to construct a small dome. However, when dish soap is placed on
+			the surface, the surface tension is released because the dish soap
+			dissolves the bonds. This causes the colored milk to spread like a flood
+			across the surface of the milk.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="/pages/soap-boat.png" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">2. Soap Boat</h3>
+		<p class="c_desc">
+			<tab></tab>Soap Boat is an experiment that involves the use soap to change
+			the surface tension of the water to propel their boats. The use of
+			soap/detergent weakens the attraction of water molecules to one another
+			(cohesion). Surface tension is caused by the attraction of water particles
+			at the surface of the water.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="/pages/floating-card.png" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Floating Card</h3>
+		<p class="c_desc">
+			<tab></tab>The index card is held in place by atmospheric pressure (the
+			pressure applied by the surrounding air). The card remains atop the
+			upside-down cup or glass because the pressure of the air molecules
+			pressing up on it exceeds the weight of the water pushing down.
+			Observations assist in revealing the unusual water suspension. So the
+			physics behind this floating water trick is just the surface tension
+			across the screen, which holds the water in place.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="/pages/sinking-clips.png" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">4. Sinking Paper Clips</h3>
+		<p class="c_desc">
+			<tab></tab>The paperclip will float because of surface tension. Surface
+			tension is the attraction of similar particles to one another on a
+			surface—in this example, a water-air surface. Water molecules on a surface
+			exhibit cohesion, which is the adhesion of one molecule to another of the
+			same substance. The detergent serves as a surfactant, which decreases the
+			surface tension of the liquid in which it is dissolved, making the
+			paperclip less likely to float.
+		</p>
+	</div>
+</div>

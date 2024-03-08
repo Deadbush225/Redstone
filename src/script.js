@@ -16,103 +16,287 @@ import "./styles/jsfluid.scss";
 // import "./scripts/interfaces.ts";
 
 let canvas = null;
+// let currently_setting_hash = false;
+// let caused_by_internal = false;
+
+import "./assets/ATOM.jpg";
+import "./assets/redstone.png";
+import "./assets/screenshot.png";
+import "./assets/STEM.jpg";
+
+// import "./scripts/ambient.min.js";
 
 window.onload = () => {
+	let pageload = {
+		ignorehashchange: false,
+		loadUrl: function (event) {
+			if (pageload.ignorehashchange == false) {
+				//code to parse window.location.hash and load content
+				let new_hash = event.newURL.slice(event.newURL.indexOf("#") + 1);
+				console.log(new_hash);
+				changeContent(new_hash);
+			}
+		},
+	};
+
 	let last_hash =
 		sessionStorage.last_hash === undefined ? "home" : sessionStorage.last_hash;
+
+	console.log("last_hash");
+	console.log(last_hash);
+	console.log(sessionStorage.last_hash);
 	// sessionStorage.pageHistory === undefined ? [] : sessionStorage.pageHistory;
 
+	window.addEventListener("hashchange", pageload.loadUrl, false);
+
+	// window.onhashchange = function (event) {
+	// 	// console.log("HASH CHANGE");
+	// 	window.alert("HASH CHANGE: " + window.location.hash + event.newURL);
+	// 	// window.alert(event.newURL);
+	// 	let new_hash = event.newURL.slice(event.newURL.indexOf("#") + 1);
+	// 	// window.alert(new_hash);
+	// 	// if (window.location.hash !== "") {
+	// 	if (new_hash !== "") {
+	// 		// changeContent(window.location.hash);
+	// 		changeContent(new_hash);
+	// 		last_hash = new_hash;
+	// 		// caused_by_internal = true
+
+	// 		// return;
+	// 	} else if (new_hash === "") {
+	// 		// changeHash("home");
+	// 	}
+
+	// 	// event.stopImmediatePropagation();
+	// };
+
 	function changeContent(pagename) {
+		// should be placed in the event handler but for effciency
+		if (is_dragging) {
+			return;
+		}
+
+		if (pagename.startsWith("#")) {
+			pagename = pagename.slice(1);
+		}
+
+		// if (pagename === window.location.hash) {
+		// 	console.log("ALREADY DISPLAYED: NOT CHANGING");
+		// 	return;
+		// }
+
 		console.log("changing content...");
 
-		$.get(`./pages/${pagename}.html`, function (data) {
-			//do something after getting the result
-			$("#contents").html($(data));
+		function func() {
+			$.get(`./pages/${pagename}.html`, function (data) {
+				//do something after getting the result
+				$("#contents").html($(data));
 
-			// page_list.push(pagename);
-			window.location.hash = pagename;
-			sessionStorage.last_hash = pagename;
-			// console.log("window.location.hash");
-			console.log(window.location.hash + "HASH");
+				// page_list.push(pagename);
 
-			// if (Canvas !== null) {
-			//     Canvas
-			// }
-
-			// Regisster events - unbind existing so that they won't be triggered when jquery detected that they are already bound
-			$("#home")
-				.off()
-				.on("click", () => {
-					console.log("HOME IS CLICKED");
-					changeContent("home");
-				});
-			$(".CA")
-				.off()
-				.on("click", () => {
-					console.log("CAPILLARY ACTION IS CLICKED");
-					changeContent("capillary-action");
-				});
-			$(".ST")
-				.off()
-				.on("click", () => {
-					console.log("SURFACE TENSION IS CLICKED");
-					changeContent("surface-tension");
-				});
-
-			if (pagename !== "home") {
-				// if (canvas !== null) {
-				// 	console.log("deleting pre physiscs");
-				// 	// canvas.particles = null;
-				// 	// canvas.particles = null;
-				// 	// Matter.Composite.clear(canvas.physics.engine, false, true);
-				// 	// delete canvas.physics;
+				// if (Canvas !== null) {
+				//     Canvas
 				// }
-				// if (canvas === null) {
-				// 	// canvas = createCanvas();
-				// }
-				Canvas.reset();
-				Canvas.init(pagename);
-				Canvas.draw();
-				Filters.set();
-				// Controls.set();
+				console.log("PAGE NAME: " + pagename);
+				if (pagename !== "") {
+					pageload.ignorehashchange = true;
+					window.location.hash = pagename;
 
-				document.getElementById("particles").onwheel = function (event) {
-					window.addEventListener("wheel", null, true);
-				};
+					setTimeout(function () {
+						pageload.ignorehashchange = false;
+					}, 100);
+					// history.pushState(
+					// 	"",
+					// 	document.title,
+					// 	window.location.pathname + "#" + pagename
+					// );
+					// history.replaceState(undefined, undefined, "#" + pagename);
+					sessionStorage.last_hash = pagename;
+					// console.log("window.location.hash");
+					console.log(window.location.hash + " -> HASH");
+					// window.alert(window.location.hash + " -> HASH");
+				}
 
-				document.getElementById("static").onwheel = function (event) {
-					window.addEventListener("wheel", null, true);
-				};
-			}
+				// Regisster events - unbind existing so that they won't be triggered when jquery detected that they are already bound
+				$("#home")
+					.off()
+					.on("click", () => {
+						// console.log("HOME IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("home");
+						// window.location.hash = "home";
+					});
+				$(".CA")
+					.off()
+					.on("click", () => {
+						// console.log("CAPILLARY ACTION IS CLICKED");
+						// caused_by_internal = true;
 
-			if (pagename === "home") {
-				new TypeIt("#title", {
-					speed: 75,
-					delay: 500,
-					// loop: true,
-				})
-					.type("Redstone SURGE!")
-					.pause(300)
-					// .type("<br id='de'>")
-					.type(
-						"<span id='greet' style='font-size: 0.8em; white-space: pre-line'>\nEnjoy your visit!</span>"
-					)
-					.pause(500)
-					.delete("#greet")
-					// .delete("#de")
-					.go();
+						changeContent("capillary-action");
+						// window.location.hash = "capillary-action";
+					});
+				$(".ST")
+					.off()
+					.on("click", () => {
+						// console.log("SURFACE TENSION IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("surface-tension");
+						// window.location.hash = "surface-tension";
+					});
+				$(".VP")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("vapor-pressure");
+						// window.location.hash = "vapor-pressure";
+					});
+				$(".BP")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("boiling-point");
+						// window.location.hash = "vapor-pressure";
+					});
+				$(".V")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("viscosity");
+						// window.location.hash = "vapor-pressure";
+					});
 
-				$(".main-carousel").flickity({
-					// options
-					cellAlign: "center",
-					// contain: true,
-					wrapAround: true,
-				});
-			}
-		});
+				$(".MHV")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("molar-heat-of-vaporization");
+						// window.location.hash = "vapor-pressure";
+					});
+				$(".FP")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("freezing-point");
+						// window.location.hash = "vapor-pressure";
+					});
+				$(".MP")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("melting-point");
+						// window.location.hash = "vapor-pressure";
+					});
+				$(".S")
+					.off()
+					.on("click", () => {
+						// console.log("VAPOR PRESSURE IS CLICKED");
+						// caused_by_internal = true;
+						changeContent("sublimation");
+						// window.location.hash = "vapor-pressure";
+					});
+
+				if (pagename !== "home") {
+					// if (canvas !== null) {
+					// 	console.log("deleting pre physiscs");
+					// 	// canvas.particles = null;
+					// 	// canvas.particles = null;
+					// 	// Matter.Composite.clear(canvas.physics.engine, false, true);
+					// 	// delete canvas.physics;
+					// }
+					// if (canvas === null) {
+					// 	// canvas = createCanvas();
+					// }
+
+					Canvas.reset();
+					Canvas.init(pagename);
+					Canvas.draw();
+					// Filters.set();
+
+					// Controls.set();
+
+					document.getElementById("particles").onwheel = function (event) {
+						window.addEventListener("wheel", null, true);
+					};
+
+					document.getElementById("static").onwheel = function (event) {
+						window.addEventListener("wheel", null, true);
+					};
+				}
+
+				// window.alert("setting eventlistener");
+
+				if (pagename === "home") {
+					new TypeIt("#title", {
+						speed: 75,
+						delay: 500,
+						// loop: true,
+					})
+						.type("Redstone SURGE!")
+						.pause(300)
+						// .type("<br id='de'>")
+						.type(
+							"<span id='greet' style='font-size: 0.8em; white-space: pre-line'>\nEnjoy your visit!</span>"
+						)
+						.pause(500)
+						.delete("#greet")
+						// .delete("#de")
+						.go();
+
+					let carousel = $(".main-carousel").flickity({
+						// options
+						cellAlign: "center",
+						// contain: true,
+						autoPlay: true,
+						pauseAutoPlayOnHover: true,
+
+						wrapAround: true,
+					});
+					carousel.on("dragStart.flickity", function (event, pointer) {
+						is_dragging = true;
+						// window.alert("DRAG");
+					});
+					carousel.on("dragEnd.flickity", function (event, pointer) {
+						setTimeout(() => {
+							is_dragging = false;
+						}, 200);
+						// window.alert("DRAG");
+					});
+				}
+			});
+		}
+		// caused_by_internal = false;
+		func();
+		// setInterval(func, 10000);
 	}
 
+	// function changeHash(hash) {
+	// 	window.location.hash = hash;
+	// 	last_hash = hash;
+	// }
+
+	let is_dragging = false;
+	let is_clicked = false;
+
+	// window.addEventListener("onmousedown", (event) => {
+
+	// $(".caroucel-cell").on("mouseup", () => {
+	// 	is_dragging = false;
+	// });
+
+	// changeHash(last_hash);
 	changeContent(last_hash);
+
+	// when this is called, the onhashchange is called, which callchangecontent again, this time false.
+
+	// force brute to make this run only once
+
+	// the sole purpose of this is to catch the back
 
 	// changeContent("capillary-action");
 	// changeContent("surface-tension");
@@ -141,159 +325,3 @@ window.onload = () => {
 	// 	mv(event);
 	// };
 };
-
-// declare global {
-// 	interface JQuery {
-// 		waitForImages(func: Function): void;
-// 		// flickity(options: any);
-// 	}
-// 	interface Flickity {
-// 		setJQuery(): any;
-// 	}
-// }
-
-// let range = Array.from({ length: 54 }, (_, i) => i + 1);
-// // console.log(range);
-
-// for (let index = 0; index < 5; index++) {
-// 	let $gallery = $([`<div class="carousel">`, `</div>`].join("\n"));
-
-// 	// let $gallery = $(".carousel");
-
-// 	for (let index = 1; index < 10; index++) {
-// 		let rand_index = Math.floor(Math.random() * range.length);
-// 		// console.log(rand_index);
-// 		// console.log(range[rand_index]);
-// 		$gallery.append(
-// 			'<div class="carousel-cell"><img id="image" src="./assets/img(' +
-// 				range[rand_index] +
-// 				').jpg" alt="" /></div>'
-// 		);
-// 		range.splice(rand_index, 1);
-// 	}
-
-// 	$(".gallery-container").append($gallery);
-// }
-
-// $("body").waitForImages(function () {
-// 	// console.log("Images have been loaded");
-// 	$(".carousel").each(function (index, element) {
-// 		console.log(element);
-// 		let odd_or_even = index % 2 == 0;
-
-// 		Flickity.setJQuery($);
-// 		jQueryBridget("flickity", Flickity, $);
-
-// 		$(element).flickity({
-// 			wrapAround: true,
-// 			percentPosition: false,
-// 			autoPlay: odd_or_even ? 2000 : 1500,
-// 			imagesLoaded: true,
-// 			rightToLeft: odd_or_even ? true : false,
-// 			prevNextButtons: false,
-// 			pageDots: false,
-// 			pauseAutoPlayOnHover: false,
-// 			cellAlign: "left",
-// 		});
-// 	});
-// });
-
-// let descriptionş: IStringIndex = {
-// 	Beautiful: "😊",
-// 	Loved: "💗",
-// 	Cute: "😉",
-// 	Sexy: "🤭",
-// 	Smart: "🎓",
-// 	Creative: "🎨",
-// 	Enough: "🥰",
-// 	"Worth it": "😚",
-// };
-
-// let t = Object.keys(descriptionş);
-// function generateDescription() {
-// 	let i: string = t.splice(Math.floor(t.length * Math.random()), 1).join();
-
-// 	console.log(i);
-// 	console.log(descriptionş[i]);
-
-// 	return (
-// 		"<span id='description'>" +
-// 		i +
-// 		"</span>" +
-// 		"<span id='emoji'>" +
-// 		descriptionş[i] +
-// 		"</span>"
-// 	);
-// }
-
-// window.onload = function () {
-// 	new TypeIt("#typedtext", {
-// 		// strings: ["test"],
-// 		speed: 80,
-// 		startDelay: 900,
-// 		waitUntilVisible: true,
-// 		afterComplete: async (n: any) => {
-// 			let $description = $(
-// 				[`<h3 id="description-container">`, `</h3>`].join("\n")
-// 			);
-// 			$("#type-container").append($description);
-
-// 			n.destroy();
-
-// 			let f = new TypeIt("#description-container", {
-// 				speed: 80,
-// 				startDelay: 500,
-// 				// waitUntilVisible: true,
-// 			})
-// 				.type("&nbsp;")
-// 				// .break()
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.pause(500)
-// 				.delete("#description")
-// 				.type(generateDescription())
-// 				.go();
-// 		},
-// 	})
-// 		.type("Hi!👋", { delay: 1500, lifeLike: true })
-// 		.pause(500)
-// 		.delete()
-// 		.type("How are you?😊", { lifeLike: true })
-// 		.pause(1000)
-// 		.delete()
-
-// 		.type("I hope you're doing well, my love!😘", {
-// 			lifeLike: true,
-// 		})
-// 		.pause(2500)
-// 		.delete()
-// 		.type("I just want to say that...", { lifeLike: true })
-// 		.pause(1500)
-// 		.delete()
-// 		.type("You are")
-// 		// .type("Testing")
-// 		.pause(500)
-// 		.go();
-// 	// .destroy();
-
-// 	//color each description
-// };
-
-//Hi!👋", "How are you?😊", "I hope you're doing well, my love!😘", "I just want to say that...", 1.5, (caret-width: 2px, caret-space: 2px, iterations: 1, end-on: "You are

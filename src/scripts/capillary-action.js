@@ -70,7 +70,7 @@ const CompositeTubeFactory = {
 			}
 		);
 
-		console.log(composite_tube_object_dict);
+		// console.log(composite_tube_object_dict);
 
 		const composite_tube = Body.create({
 			parts: cubes.bodies,
@@ -111,9 +111,9 @@ export const CA = {
 		return Physics((Bodies, Constraint, engine, mouseConstraint) => {
 			this.engine = engine;
 
-			console.log(engine.gravity.y);
+			// console.log(engine.gravity.y);
 			engine.gravity.y = 0.4;
-			console.log(engine.gravity.y);
+			// console.log(engine.gravity.y);
 
 			const COS = Math.cos((Config.slantRectAngle * Math.PI) / 180);
 			const SIN = Math.sin((Config.slantRectAngle * Math.PI) / 180);
@@ -347,7 +347,7 @@ export const CA = {
 				if (!dragBody.isStatic) {
 					return;
 				}
-				console.log(event);
+				// console.log(event);
 
 				if (dragBody.label === "tube") {
 					dragBody.isStatic = false;

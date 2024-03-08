@@ -1,0 +1,236 @@
+<h1 id="section-title">Molar Heat of Vaporization</h1>
+<!-- video -->
+<h2>Demonstration</h2>
+<div class="video-wrapper">
+	<!-- <iframe
+		width="700"
+		height="400"
+		src="https://www.youtube.com/embed/mtB8rfI2-qU?si=huuisI5xYpWCt82v"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen
+	></iframe> -->
+</div>
+<!-- Canvas -->
+<h2>Experiment</h2>
+<div class="experiment">
+	<div class="canvas-wrapper">
+		<canvas id="static"></canvas>
+		<canvas id="particles"></canvas>
+	</div>
+	<div class="checklist">
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" checked />
+			</div>
+			<div class="step-number">1.</div>
+			<div class="desc">
+				There's a triangle pin that you can use to "pop" the watter bubble
+			</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">2.</div>
+			<div class="desc">Pop the water bubble using the pin</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">3.</div>
+			<div class="desc">Observe what will happen to the water bubble😉</div>
+		</div>
+		<!-- <div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">4.</div>
+			<div class="desc">Nothing atm</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">5.</div>
+			<div class="desc">Nothing atm</div>
+		</div> -->
+	</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="particles-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -4"
+				result="goo"
+			/>
+		</filter>
+	</defs>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="static-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -6"
+				result="goo"
+			/>
+			<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+		</filter>
+	</defs>
+</svg>
+<p>
+	<tab></tab>Boiling point means the temperature at which a liquid's vapor
+	exerts an equal amount of pressure on it as does the surrounding atmosphere;
+	in this situation, adding heat causes the liquid to turn into its vapor
+	without increasing the temperature.
+</p>
+<p>
+	<tab></tab> A liquid partially vaporizes into the space above it at any
+	temperature until the vapor's pressure exerted reaches a characteristic value
+	known as the liquid's vapor pressure at that temperature. Vapor bubbles form
+	in the liquid and rise to the surface as the temperature rises, indicating a
+	rise in vapor pressure.
+</p>
+<h3>Factors affecting Boiling Point:</h3>
+
+<p>
+	Water boils at 100° C (212° F) at sea level, but can change due to the
+	influence of other factors such as:
+</p>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/BP/pressure.png" alt="surfactant.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">1. Pressure</h3>
+		<p class="c_desc">
+			<tab></tab>Pressure is the force exerted per unit area, commonly measured
+			in Pascals (Pa), newtons per square meter (N/m²). It can be the result of
+			various factors like fluid or gas exertion on a surface, atmospheric
+			weight, or even the force applied by individuals to persuade or influence
+			others.
+		</p>
+		<div class="c_callout">
+			<p>when the external pressure is:</p>
+			<ul>
+				<li>
+					The liquid's boiling point is lower than its typical boiling
+					point—less than one atmosphere.
+				</li>
+				<li>
+					The term "normal boiling point" refers to a liquid's boiling point
+					that is equivalent to one atmosphere.
+				</li>
+				<li>
+					The liquid's boiling point is higher than its typical boiling point
+					when it is greater than one atmosphere.
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="../assets/BP/type-of-molecules.jpg" alt="impurities.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">2. Types of Molecules</h3>
+		<p class="c_desc">
+			<tab></tab>The boiling point of a liquid is determined by the kinds of
+			molecules that comprise it. In the event that molecules interact with one
+			another are: relatively strong, the boiling point will be relatively high.
+			relatively weak, the boiling point will be relatively low.
+		</p>
+		<div class="c_callout">
+			<p>In the event that molecules interact with one another are:</p>
+			<ul>
+				<li>relatively strong, the boiling point will be relatively high.</li>
+				<li>relatively strong, the boiling point will be relatively high.</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<h3>WHO???</h3>
+<div class="who">
+	<div class="figure">
+		<img src="../assets/BP/ander-celcius.jpg" alt="agnes_pockels.jpg" />
+		<h6 class="wh-name">ANDERS CELCIUS</h6>
+	</div>
+	<p class="wh-desc">
+		In order to work with mercury thermometers, Celsius created a
+		<emp> centigrade temperature scale </emp> that set the boiling and freezing
+		points of water at zero and one hundred degrees, respectively. In 1742, he
+		gave the Swedish Academy of Sciences a description of the new scale.
+	</p>
+</div>
+
+<h3>Other Experiments:</h3>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/BP/pressure-cooker.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">1. Pressure Cooker</h3>
+		<p class="c_desc">
+			<tab></tab>In practically every kitchen, pressure cooking is the most
+			popular cooking technique. It is also the most typical instance of boiling
+			in daily life. The water is heated inside a pressure cooker until it boils
+			and produces steam.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="../assets/BP/sugar-refining.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">2. Sugar Refining</h3>
+		<p class="c_desc">
+			<tab></tab>To get crystalline sugar, the extracted sugarcane juice needs
+			to be refined. There are times when cane juice or syrup must boil, and the
+			boiling point is determined by the amount of sugar present.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/BP/antifreeze.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Antifreeze</h3>
+		<p class="c_desc">
+			<tab></tab>In essence, antifreeze is an additive that lowers the freezing
+			point of a water-based liquid when it is added. A coolant works because it
+			causes the system to boil over when the temperature of the coolant rises
+			to its boiling point. It raises the liquids' boiling points and stops
+			boilovers.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="../assets/BP/boiling milk.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">4. Boiling Milk</h3>
+		<p class="c_desc">
+			<tab></tab>Since fat is lighter than water, it rises to the surface of
+			heated milk along with protein in the form of cream. If milk is heated too
+			much, however, the expansion of water vapor creates pressure that pushes
+			up the creamy layer until the milk spills out. Despite the fact that the
+			boiling points of water and milk are fairly close, milk has a slightly
+			higher boiling point due to boiling point elevation.
+		</p>
+	</div>
+</div>

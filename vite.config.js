@@ -28,7 +28,10 @@ const htmlFiles = fs
 		return file.endsWith(".html");
 	})
 	.map((file, index) => {
+		// return ["html_page" + index, resolve(root, file)];
 		return ["html_page" + index, resolve(root, "pages", file)];
+		// console.log(index, resolve(root, "pages", file));
+		// return resolve(root, "pages", file);
 	});
 
 export default defineConfig({
@@ -50,7 +53,8 @@ export default defineConfig({
 		// }),
 	],
 
-	base: "./",
+	base: "./src/",
+	// base: "./src/",
 	publicDir: false,
 	root: root,
 	mode: "Development",
@@ -74,29 +78,43 @@ export default defineConfig({
 			},
 
 			output: {
+				// chunkFileNames: (chunkInfo) => {
+				// 	console.log(chunkInfo.name + "***");
+				// },
+
 				assetFileNames: (assetInfo) => {
 					let extType = assetInfo.name.split(".").pop();
 
-					console.log(extType);
-
 					if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
 						// extType = "assets";
-						return "assets/[name][extname]";
+						console.log(assetInfo.name + " :: " + extType + " :: " + "assets");
+						return "pages/[name][extname]";
+						// return "assets/[name][extname]";
 					} else if (/css|ts/i.test(extType)) {
-						return "styles/[name]-[hash][extname]";
-					} else if (/html/i.test(extType)) {
+						console.log(assetInfo.name + " :: " + extType + " :: " + "styles");
 						return "pages/[name]-[hash][extname]";
+						// return "styles/[name]-[hash][extname]";
+					} else if (/html/i.test(extType)) {
+						console.log(assetInfo.name + " :: " + extType + " :: " + "pages");
+						return "[name]-[hash][extname]";
+						// return "pages/[name]-[hash][extname]";
 					}
 
+					console.log(
+						assetInfo.name + " :: " + extType + " :: " + "assets nalang"
+					);
 					return "assets/[name]-[hash][extname]";
 					// "css" is only one so no need to catch any possible outcome
 				},
+
+				// assetFileNames: "[name].[ext]",
 
 				chunkFileNames: "scripts/[name]-[hash].js",
 
 				entryFileNames: "scripts/[name]-[hash].js",
 
-				// dir: "docs/",
+				dir: "docs",
+				// dir: "docs/assets",
 				generatedCode: "es5",
 			},
 		},

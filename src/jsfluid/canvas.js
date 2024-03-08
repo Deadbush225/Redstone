@@ -229,13 +229,13 @@ export const Canvas = {
 		try {
 			// Matter.Composite.clear(this.engine, false, true);
 
-			console.log("TESTISET");
+			// console.log("RESET FUNCTION");
 			// console.log(Matter.Composite.allBodies(this.engine.world));
 			// console.log(
 			this.physics.reSEAT();
 			// );
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	},
 };

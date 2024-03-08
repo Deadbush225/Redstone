@@ -1,0 +1,253 @@
+<h1 id="section-title">Vapor Pressure</h1>
+<!-- video -->
+<h2>Demonstration</h2>
+<div class="video-wrapper">
+	<!-- <iframe
+		width="700"
+		height="400"
+		src="https://www.youtube.com/embed/mtB8rfI2-qU?si=huuisI5xYpWCt82v"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen
+	></iframe> -->
+</div>
+<!-- Canvas -->
+<h2>Experiment</h2>
+<div class="experiment">
+	<div class="canvas-wrapper">
+		<canvas id="static"></canvas>
+		<canvas id="particles"></canvas>
+	</div>
+	<div class="checklist">
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" checked />
+			</div>
+			<div class="step-number">1.</div>
+			<div class="desc">
+				There's a triangle pin that you can use to "pop" the watter bubble
+			</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">2.</div>
+			<div class="desc">Pop the water bubble using the pin</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">
+				<input type="checkbox" />
+			</div>
+			<div class="step-number">3.</div>
+			<div class="desc">Observe what will happen to the water bubble😉</div>
+		</div>
+		<!-- <div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">4.</div>
+			<div class="desc">Nothing atm</div>
+		</div>
+		<div class="steps">
+			<div class="emoticon">⭕</div>
+			<div class="step-number">5.</div>
+			<div class="desc">Nothing atm</div>
+		</div> -->
+	</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="particles-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -4"
+				result="goo"
+			/>
+		</filter>
+	</defs>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<filter id="static-filter">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+			<feColorMatrix
+				in="blur"
+				mode="matrix"
+				values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 15 -6"
+				result="goo"
+			/>
+			<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+		</filter>
+	</defs>
+</svg>
+<p>
+	<tab></tab>Vapor pressure, also known as vapor equilibrium pressure, can be
+	defined as the pressure exerted (in a system featuring thermodynamic
+	equilibrium) by a vapor with its condensed phases (solid or liquid) in a
+	closed system at a given temperature. The equilibrium vapor pressure is known
+	to serve as an indicator of the evaporation rate of a liquid. The propensity
+	of particles to escape from the liquid (or a solid) is known to be related. A
+	material that, at normal temperatures, has a high vapour pressure is generally
+	referred to as a volatile material.
+</p>
+
+<h3>Factors Affecting the Vapor Pressure:</h3>
+
+<p>
+	The pressure exhibited above a liquid surface by the vapour, also known as
+	called vapor pressure is influenced by factors such as:
+</p>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/VP/nature-of-liquid.jpg" alt="surfactant.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">1. Nature of Liquid</h3>
+		<p class="c_desc">
+			<tab></tab>The nature of liquid is one of the most critical factors that
+			affect vapor pressure. The effect of the nature of the liquid can be
+			explained based on the intermolecular forces.
+		</p>
+
+		<div class="c_callout">
+			The vapour pressure decreases with an increase in the magnitude of
+			intermolecular forces. When the magnitude of intermolecular forces
+			decreases, the vapor pressure of the liquid increases. For example, at a
+			particular temperature, the vapor pressure of glycerol is less than that
+			of isopentane. This is because the magnitude of the intermolecular forces
+			is higher in glycerol.
+		</div>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="../assets/VP/boiling-point.jpg" alt="impurities.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">2. Liquid’s Boiling Point</h3>
+		<p class="c_desc">
+			<tab></tab>The boiling point is also a crucial factor that affects the
+			vapor pressure. The relationship between boiling point and vapor pressure
+			is inversely proportional. It means that the vapor pressure of the liquid
+			with a higher boiling point will have a lower vapor pressure.
+		</p>
+		<div class="c_callout">
+			For example, when the vapor pressures of ethyl alcohol and ether are
+			compared, the vapour pressure of ether is higher because it has a lower
+			boiling point.
+		</div>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/VP/temperature.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Temperature</h3>
+		<p class="c_desc">
+			<tab></tab>Temperature is the most significant factor that affects vapor
+			pressure. When a liquid is provided with a high temperature, the kinetic
+			energy of its molecules increases.
+		</p>
+		<div class="c_callout">
+			Molecules possessing higher kinetic energy tend to leave the liquid
+			surface more quickly, and the vapor pressure will increase due to more
+			molecules getting converted into vapor.
+		</div>
+		<p class="c_desc">
+			<tab></tab>Hence, we can conclude that temperature is directly
+			proportional to the vapor pressure of a liquid. To be precise, the vapor
+			pressure increases with an increase in temperature and vice-versa.
+		</p>
+	</div>
+</div>
+
+<h3>WHO???</h3>
+<div class="who">
+	<div class="figure">
+		<img src="../assets/VP/francois-marie-raoult.jpg" alt="agnes_pockels.jpg" />
+		<h6 class="wh-name">Francois-Marie Raoult</h6>
+	</div>
+	<div>
+		<p class="wh-desc">
+			<tab></tab>In the 1880s,
+			<emp>French chemist François-Marie Raoult</emp> discovered that when a
+			substance is dissolved in a solution, the vapor pressure of the solution
+			will generally decrease. This observation depends on two variables:
+		</p>
+		<ul>
+			<li>the mole fraction of the amount of dissolved solute present and</li>
+			<li>the original vapor pressure (pure solvent).</li>
+		</ul>
+		<h4>Raoult’s Law of Vapor Pressure</h4>
+		<p>
+			<tab></tab>In his law it states that the vapor pressure of a solvent above
+			a solution is equal to the vapor pressure of the pure solvent at the same
+			temperature scaled by the mole fraction of the solvent present:
+		</p>
+		<p><tab></tab><tab></tab>Psolution = χ × solvent × Posolvent</p>
+		<p>
+			<tab></tab>At any given temperature for a particular solid or liquid,
+			there is a pressure at which the vapor formed above the substance is in
+			dynamic equilibrium with its liquid or solid form. This is the vapor
+			pressure of the substance at that temperature. At equilibrium, the rate at
+			which the solid or liquid evaporates is equal to the rate that the gas is
+			condensing back to its original form. All solids and liquids have a vapor
+			pressure, and this pressure is constant regardless of how much of the
+			substance is present.
+		</p>
+	</div>
+</div>
+
+<h3>Other Experiments:</h3>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/VP/tea-kettle.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">1. Tea Kettle</h3>
+		<p class="c_desc">
+			<tab></tab>A tea kettle demonstrates vapor pressure in the best possible
+			manner. When the water poured inside the kettle starts boiling, the number
+			of water vapors inside the kettle begins to increase. The water vapors
+			exert pressure on the lid of the kettle, thereby pushing it up.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardright">
+	<div class="c_image">
+		<img src="../assets/VP/pressure-cooker.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">2. Pressure Cooker</h3>
+		<p class="c_desc">
+			<tab></tab>The principle of vapor pressure underpins the entire
+			functioning of a pressure cooker. Water vapors develop when heat is
+			applied to the ingredients put into the pressure cooker. The vapor
+			pressure in the cookware tends to rise due to this.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/VP/drying-clothes.jpg" alt="temperature.jpg" />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Drying Clothes</h3>
+		<p class="c_desc">
+			<tab></tab>The drying of clothes is an important phenomenon that makes use
+			of the concept of vapor pressure. Mostly to dry clothes at a faster rate,
+			they are subjected to an environment that has a high temperature. For
+			instance, traditionally the clothes are dried by exposing them to the
+			sunlight.
+		</p>
+	</div>
+</div>

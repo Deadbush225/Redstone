@@ -1,6 +1,7 @@
 <h1 id="section-title">Melting Point</h1>
 <!-- video -->
 <h2>Demonstration</h2>
+<p class="note">Animation w/ Fun DIY</p>
 <div class="video-wrapper">
 	<!-- <iframe
 		width="700"
@@ -10,7 +11,18 @@
 		frameborder="0"
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 		allowfullscreen
-	></iframe> -->
+	></iframe> --><video
+		src="../assets/DEMOS/MP-DEMO.mp4"
+		width="900"
+		height="450"
+		id="demo-vid"
+		controls
+		preload="auto"
+		data-ambient
+	>
+		<!-- <source src="movie.ogg" type="video/ogg" /> -->
+		Your browser does not support the video tag.
+	</video>
 </div>
 <!-- Canvas -->
 <h2>Experiment</h2>
@@ -18,6 +30,16 @@
 	<div class="canvas-wrapper">
 		<canvas id="static"></canvas>
 		<canvas id="particles"></canvas>
+		<div class="slidecontainer">
+			<input
+				type="range"
+				min="1"
+				max="100"
+				value="50"
+				class="slider"
+				id="tempRange"
+			/>
+		</div>
 	</div>
 	<div class="checklist">
 		<div class="steps">
@@ -25,23 +47,25 @@
 				<input type="checkbox" checked />
 			</div>
 			<div class="step-number">1.</div>
-			<div class="desc">
-				There's a triangle pin that you can use to "pop" the watter bubble
-			</div>
+			<div class="desc">There's an icecube inside the system</div>
 		</div>
 		<div class="steps">
 			<div class="emoticon">
 				<input type="checkbox" />
 			</div>
 			<div class="step-number">2.</div>
-			<div class="desc">Pop the water bubble using the pin</div>
+			<div class="desc">
+				Watch and control its melting my sliding the temperature ⬆️ or ⬇️
+			</div>
 		</div>
 		<div class="steps">
 			<div class="emoticon">
 				<input type="checkbox" />
 			</div>
 			<div class="step-number">3.</div>
-			<div class="desc">Observe what will happen to the water bubble😉</div>
+			<div class="desc">
+				Observe the ratee of melting as the temperature changes😉
+			</div>
 		</div>
 		<!-- <div class="steps">
 			<div class="emoticon">⭕</div>
@@ -83,77 +107,84 @@
 	</defs>
 </svg>
 <p>
-	<tab></tab>Molar Heat of Vaporization (ΔHvap) expresses the amount of heat
-	energy required for one mole of a substance to change state from liquid to
-	gas. During this transition a lot of energy is needed for the liquid's
-	molecules to separate from one another. In doing so, they can absorb the heat
-	and enter the gas phase.
+	<tab></tab>The melting point is the temperature at which a solid substance
+	transitions into a liquid state. It is a crucial physical property used to
+	identify substances, with pure compounds melting over a narrow range compared
+	to impure ones. Let’s dive into the details:
 </p>
-<p>
-	<tab></tab> A liquid partially vaporizes into the space above it at any
-	temperature until the vapor's pressure exerted reaches a characteristic value
-	known as the liquid's vapor pressure at that temperature. Vapor bubbles form
-	in the liquid and rise to the surface as the temperature rises, indicating a
-	rise in vapor pressure.
-</p>
-<h3>Factors affecting Molar Heat of Vaporization:</h3>
+
+<h3>Factors Affecting the Melting Point:</h3>
 
 <p>
-	Water boils at 100° C (212° F) at sea level, but can change due to the
-	influence of other factors such as:
+	<tab></tab>Melting points are determined by heating a sample and observing the
+	temperature range over which the solid transforms into a liquid, which arises
+	due to the interplay of different forces:
 </p>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/pressure.png" alt="surfactant.jpg" />
+		<img src="../assets/MP/purity.png" alt="surfactant.jpg" data-ambient />
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">1. Pressure</h3>
+		<h3 class="c_title">1. Purity</h3>
 		<p class="c_desc">
-			<tab></tab>Pressure is the force exerted per unit area, commonly measured
-			in Pascals (Pa), newtons per square meter (N/m²). It can be the result of
-			various factors like fluid or gas exertion on a surface, atmospheric
-			weight, or even the force applied by individuals to persuade or influence
-			others.
+			<tab></tab>Impurities lower and widen the melting point range of
+			substances, affecting their overall melting behavior.
 		</p>
-		<div class="c_callout">
-			<p>when the external pressure is:</p>
-			<ul>
-				<li>
-					The liquid's boiling point is lower than its typical boiling
-					point—less than one atmosphere.
-				</li>
-				<li>
-					The term "normal boiling point" refers to a liquid's boiling point
-					that is equivalent to one atmosphere.
-				</li>
-				<li>
-					The liquid's boiling point is higher than its typical boiling point
-					when it is greater than one atmosphere.
-				</li>
-			</ul>
-		</div>
 	</div>
 </div>
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/type-of-molecules.jpg" alt="impurities.jpg" />
+		<img
+			src="../assets/MP/intermolecular-forces.png"
+			alt="impurities.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">2. Types of Molecules</h3>
+		<h3 class="c_title">2. Intermolecular Forces</h3>
 		<p class="c_desc">
-			<tab></tab>The boiling point of a liquid is determined by the kinds of
-			molecules that comprise it. In the event that molecules interact with one
-			another are: relatively strong, the boiling point will be relatively high.
-			relatively weak, the boiling point will be relatively low.
+			<tab></tab>Stronger intermolecular forces lead to higher melting points as
+			more energy is required to break these bonds.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img
+			src="../assets/MP/molecular-weight.png"
+			alt="temperature.jpg"
+			data-ambient
+		/>
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Molecular Weight</h3>
+		<p class="c_desc">
+			<tab></tab>Compounds with higher molecular weights tend to have higher
+			melting points due to increased van der Waals forces between molecules.
 		</p>
 		<div class="c_callout">
-			<p>In the event that molecules interact with one another are:</p>
-			<ul>
-				<li>relatively strong, the boiling point will be relatively high.</li>
-				<li>relatively strong, the boiling point will be relatively high.</li>
-			</ul>
+			<tab></tab>When these forces combine, they pull the liquid into the tube
+			or material, allowing it to rise against gravity.
+		</div>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/MP/pressure.png" alt="temperature.jpg" data-ambient />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">4. Pressure</h3>
+		<p class="c_desc">
+			<tab></tab>Changes in pressure can alter the melting point of substances,
+			especially for materials sensitive to pressure variations.
+		</p>
+		<div class="c_callout">
+			<tab></tab>The melting point range is indicative of purity, where
+			impurities cause a lower and wider melting range.
 		</div>
 	</div>
 </div>
@@ -161,77 +192,113 @@
 <h3>WHO???</h3>
 <div class="who">
 	<div class="figure">
-		<img src="../assets/BP/ander-celcius.jpg" alt="agnes_pockels.jpg" />
-		<h6 class="wh-name">ANDERS CELCIUS</h6>
+		<img
+			src="../assets/MP/kenneth-vecchio.png"
+			alt="agnes_pockels.jpg"
+			data-ambient
+		/>
+		<h6 class="wh-name">Kenneth Vecchio</h6>
 	</div>
-	<p class="wh-desc">
-		In order to work with mercury thermometers, Celsius created a
-		<emp> centigrade temperature scale </emp> that set the boiling and freezing
-		points of water at zero and one hundred degrees, respectively. In 1742, he
-		gave the Swedish Academy of Sciences a description of the new scale.
-	</p>
+	<div class="wh-desc">
+		<p>
+			<tab></tab>One notable individual associated with high melting points is
+			<emp>Kenneth Vecchio</emp>, a materials engineer at UC San Diego leading
+			research on new materials with melting points above 4000 degrees Celsius.
+		</p>
+		<p>
+			<tab></tab>Vecchio's work focuses on developing a research platform to
+			study materials that can withstand ultra-high temperatures, offering
+			potential applications in various industries like aerospace and energy.
+		</p>
+		<!-- <p>
+			<tab></tab>Tsvet's innovative approach involved passing plant extracts
+			through a column of calcium carbonate, where different components
+			separated based on their interactions with the material. He discovered
+			that by adding ethanol progressively to the carbonate, he could
+			selectively separate various plant pigments, such as carotene and
+			xanthophylls, from the mixture.
+		</p> -->
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/Tob1geDlEZQ?si=LqauAAWHAGeYV4Zh"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+		></iframe>
+	</div>
 </div>
 
 <h3>Other Experiments:</h3>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/pressure-cooker.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MP/melting-point-determination.png"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">1. Pressure Cooker</h3>
+		<h3 class="c_title">1. Melting Point Determination</h3>
 		<p class="c_desc">
-			<tab></tab>In practically every kitchen, pressure cooking is the most
-			popular cooking technique. It is also the most typical instance of boiling
-			in daily life. The water is heated inside a pressure cooker until it boils
-			and produces steam.
+			<tab></tab>Students can learn how to accurately determine the melting
+			points of different substances using a Mel-Temp device and glass capillary
+			tubes.
 		</p>
 	</div>
 </div>
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/sugar-refining.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MP/mixed-melting-point-experiment.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">2. Sugar Refining</h3>
+		<h3 class="c_title">2. Mixed Melting Point Experiment</h3>
 		<p class="c_desc">
-			<tab></tab>To get crystalline sugar, the extracted sugarcane juice needs
-			to be refined. There are times when cane juice or syrup must boil, and the
-			boiling point is determined by the amount of sugar present.
+			<tab></tab>Explore how mixing unknown compounds with known ones can help
+			identify substances based on changes in the melting point range
 		</p>
 	</div>
 </div>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/antifreeze.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MP/melting-ice-shapes-experiment.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">3. Antifreeze</h3>
+		<h3 class="c_title">3. Melting Ice Shapes Experiment</h3>
 		<p class="c_desc">
-			<tab></tab>In essence, antifreeze is an additive that lowers the freezing
-			point of a water-based liquid when it is added. A coolant works because it
-			causes the system to boil over when the temperature of the coolant rises
-			to its boiling point. It raises the liquids' boiling points and stops
-			boilovers.
+			<tab></tab>Investigate how external factors like water temperature
+			influence the shapes of ice formations during the melting process, linking
+			it to the concept of melting points.
 		</p>
 	</div>
 </div>
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/boiling milk.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MP/capillary-action-and-melting-points.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">4. Boiling Milk</h3>
+		<h3 class="c_title">4. Capillary Action and Melting Points</h3>
 		<p class="c_desc">
-			<tab></tab>Since fat is lighter than water, it rises to the surface of
-			heated milk along with protein in the form of cream. If milk is heated too
-			much, however, the expansion of water vapor creates pressure that pushes
-			up the creamy layer until the milk spills out. Despite the fact that the
-			boiling points of water and milk are fairly close, milk has a slightly
-			higher boiling point due to boiling point elevation.
+			<tab></tab>Connects capillary action principles to melting points by
+			demonstrating how cohesive and adhesive forces affect both phenomena,
+			showcasing their interplay in material properties.
 		</p>
 	</div>
 </div>

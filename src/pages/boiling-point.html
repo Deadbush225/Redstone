@@ -1,6 +1,7 @@
 <h1 id="section-title">Boiling Point</h1>
 <!-- video -->
 <h2>Demonstration</h2>
+<p class="note">Animation w/ Fun DIY</p>
 <div class="video-wrapper">
 	<!-- <iframe
 		width="700"
@@ -11,6 +12,18 @@
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 		allowfullscreen
 	></iframe> -->
+	<video
+		src="../assets/DEMOS/B-DEMO.mp4"
+		width="900"
+		height="450"
+		id="demo-vid"
+		controls
+		preload="auto"
+		data-ambient
+	>
+		<!-- <source src="movie.ogg" type="video/ogg" /> -->
+		Your browser does not support the video tag.
+	</video>
 </div>
 <!-- Canvas -->
 <h2>Experiment</h2>
@@ -18,6 +31,16 @@
 	<div class="canvas-wrapper">
 		<canvas id="static"></canvas>
 		<canvas id="particles"></canvas>
+		<div class="slidecontainer">
+			<input
+				type="range"
+				min="1"
+				max="100"
+				value="50"
+				class="slider"
+				id="tempRange"
+			/>
+		</div>
 	</div>
 	<div class="checklist">
 		<div class="steps">
@@ -26,7 +49,8 @@
 			</div>
 			<div class="step-number">1.</div>
 			<div class="desc">
-				There's a triangle pin that you can use to "pop" the watter bubble
+				This model is quite useful you see, we can see how the water forms
+				circular currents (aka convection current) as it boils
 			</div>
 		</div>
 		<div class="steps">
@@ -34,14 +58,18 @@
 				<input type="checkbox" />
 			</div>
 			<div class="step-number">2.</div>
-			<div class="desc">Pop the water bubble using the pin</div>
+			<div class="desc">
+				Slide up the temperature to see these current in action
+			</div>
 		</div>
 		<div class="steps">
 			<div class="emoticon">
 				<input type="checkbox" />
 			</div>
 			<div class="step-number">3.</div>
-			<div class="desc">Observe what will happen to the water bubble😉</div>
+			<div class="desc">
+				Observe what will happen to the vibration between the water molecules😉
+			</div>
 		</div>
 		<!-- <div class="steps">
 			<div class="emoticon">⭕</div>
@@ -105,7 +133,7 @@
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/pressure.png" alt="surfactant.jpg" />
+		<img src="../assets/BP/pressure.png" alt="surfactant.jpg" data-ambient />
 	</div>
 	<div class="c_text">
 		<h3 class="c_title">1. Pressure</h3>
@@ -138,7 +166,11 @@
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/type-of-molecules.jpg" alt="impurities.jpg" />
+		<img
+			src="../assets/BP/type-of-molecules.jpg"
+			alt="impurities.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
 		<h3 class="c_title">2. Types of Molecules</h3>
@@ -161,22 +193,42 @@
 <h3>WHO???</h3>
 <div class="who">
 	<div class="figure">
-		<img src="../assets/BP/ander-celcius.jpg" alt="agnes_pockels.jpg" />
+		<img
+			src="../assets/BP/ander-celcius.jpg"
+			alt="agnes_pockels.jpg"
+			data-ambient
+		/>
 		<h6 class="wh-name">ANDERS CELCIUS</h6>
 	</div>
-	<p class="wh-desc">
-		In order to work with mercury thermometers, Celsius created a
-		<emp> centigrade temperature scale </emp> that set the boiling and freezing
-		points of water at zero and one hundred degrees, respectively. In 1742, he
-		gave the Swedish Academy of Sciences a description of the new scale.
-	</p>
+	<div class="wh-desc">
+		<p>
+			In order to work with mercury thermometers, Celsius created a
+			<emp> centigrade temperature scale </emp> that set the boiling and
+			freezing points of water at zero and one hundred degrees, respectively. In
+			1742, he gave the Swedish Academy of Sciences a description of the new
+			scale.
+		</p>
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/iAL43wUJg2U?si=KeDjW9TLIuXOp1vs"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+		></iframe>
+	</div>
 </div>
 
 <h3>Other Experiments:</h3>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/pressure-cooker.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/BP/pressure-cooker.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
 		<h3 class="c_title">1. Pressure Cooker</h3>
@@ -191,7 +243,11 @@
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/sugar-refining.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/BP/sugar-refining.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
 		<h3 class="c_title">2. Sugar Refining</h3>
@@ -205,7 +261,7 @@
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/antifreeze.jpg" alt="temperature.jpg" />
+		<img src="../assets/BP/antifreeze.jpg" alt="temperature.jpg" data-ambient />
 	</div>
 	<div class="c_text">
 		<h3 class="c_title">3. Antifreeze</h3>
@@ -221,7 +277,11 @@
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/boiling milk.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/BP/boiling milk.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
 		<h3 class="c_title">4. Boiling Milk</h3>

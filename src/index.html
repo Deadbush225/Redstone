@@ -30,6 +30,8 @@
 		<!-- Type it -->
 		<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
 
+		<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
 		<link rel="icon" type="image/x-icon" href="./redstone.png" />
 	</head>
 
@@ -42,8 +44,14 @@
 			<li class="navitems"><a id="home">Home</a></li>
 			<!-- <li class="navitems"><a href="#news">News</a></li> -->
 			<div class="dropdown">
-				<button class="dropbtn" onclick="myFunction(1)" id="1">
-					Properties of Solid
+				<button
+					class="dropbtn long-text"
+					data-abbr="Solid"
+					onclick="myFunction(1)"
+					id="1"
+				>
+					<span>Properties of Solid</span>
+
 					<i class="fa fa-caret-down"></i>
 				</button>
 				<div class="dropdown-content" id="myDropdown1">
@@ -57,8 +65,14 @@
 				</div>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn" onclick="myFunction(2)" id="2">
-					Properties of Liquid
+				<button
+					class="dropbtn long-text"
+					data-abbr="Liquid"
+					onclick="myFunction(2)"
+					id="2"
+				>
+					<span>Properties of Liquid</span>
+
 					<i class="fa fa-caret-down"></i>
 				</button>
 				<div class="dropdown-content" id="myDropdown2">
@@ -104,5 +118,6 @@
 			});
 		};
 	</script>
+	<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 	<script type="module" src="./script.js"></script>
 </html>

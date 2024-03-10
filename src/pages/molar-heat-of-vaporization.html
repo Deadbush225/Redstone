@@ -1,6 +1,7 @@
 <h1 id="section-title">Molar Heat of Vaporization</h1>
 <!-- video -->
 <h2>Demonstration</h2>
+<p class="note">Animation w/ Fun DIY</p>
 <div class="video-wrapper">
 	<!-- <iframe
 		width="700"
@@ -11,6 +12,18 @@
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 		allowfullscreen
 	></iframe> -->
+	<video
+		src="../assets/DEMOS/MHV-DEMO.mp4"
+		width="900"
+		height="450"
+		id="demo-vid"
+		controls
+		preload="auto"
+		data-ambient
+	>
+		<!-- <source src="movie.ogg" type="video/ogg" /> -->
+		Your browser does not support the video tag.
+	</video>
 </div>
 <!-- Canvas -->
 <h2>Experiment</h2>
@@ -18,6 +31,17 @@
 	<div class="canvas-wrapper">
 		<canvas id="static"></canvas>
 		<canvas id="particles"></canvas>
+
+		<div class="slidecontainer">
+			<input
+				type="range"
+				min="1"
+				max="100"
+				value="50"
+				class="slider"
+				id="tempRange"
+			/>
+		</div>
 	</div>
 	<div class="checklist">
 		<div class="steps">
@@ -26,7 +50,8 @@
 			</div>
 			<div class="step-number">1.</div>
 			<div class="desc">
-				There's a triangle pin that you can use to "pop" the watter bubble
+				Seems familiar? This model can also represent how water transform from
+				liquid to gas
 			</div>
 		</div>
 		<div class="steps">
@@ -34,14 +59,18 @@
 				<input type="checkbox" />
 			</div>
 			<div class="step-number">2.</div>
-			<div class="desc">Pop the water bubble using the pin</div>
+			<div class="desc">
+				Slide the tempreture knob to control the temperature
+			</div>
 		</div>
 		<div class="steps">
 			<div class="emoticon">
 				<input type="checkbox" />
 			</div>
 			<div class="step-number">3.</div>
-			<div class="desc">Observe what will happen to the water bubble😉</div>
+			<div class="desc">
+				Observe what will happen to the distance between the water molecules😉
+			</div>
 		</div>
 		<!-- <div class="steps">
 			<div class="emoticon">⭕</div>
@@ -83,76 +112,70 @@
 	</defs>
 </svg>
 <p>
-	<tab></tab>Boiling point means the temperature at which a liquid's vapor
-	exerts an equal amount of pressure on it as does the surrounding atmosphere;
-	in this situation, adding heat causes the liquid to turn into its vapor
-	without increasing the temperature.
+	<tab></tab>Molar Heat of Vaporization (ΔHvap) is the amount of heat energy
+	required for one mole of a substance to change state from liquid to gas.
 </p>
-<p>
-	<tab></tab> A liquid partially vaporizes into the space above it at any
-	temperature until the vapor's pressure exerted reaches a characteristic value
-	known as the liquid's vapor pressure at that temperature. Vapor bubbles form
-	in the liquid and rise to the surface as the temperature rises, indicating a
-	rise in vapor pressure.
-</p>
-<h3>Factors affecting Boiling Point:</h3>
+
+<h3>Factors affecting the Molar Heat of Vaporization:</h3>
 
 <p>
-	Water boils at 100° C (212° F) at sea level, but can change due to the
-	influence of other factors such as:
+	During this transition a lot of energy is needed for the liquid's molecules to
+	separate from one another. In doing so, they can absorb the heat and enter the
+	gas phase but these can vary due to the influence of other factors such as:
 </p>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/pressure.png" alt="surfactant.jpg" />
+		<img
+			src="../assets/MHV/strength-of-intermolecular-forces.gif"
+			alt="surfactant.jpg"
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">1. Pressure</h3>
+		<h3 class="c_title">1. Strength of Intermolecular Forces</h3>
 		<p class="c_desc">
-			<tab></tab>Pressure is the force exerted per unit area, commonly measured
-			in Pascals (Pa), newtons per square meter (N/m²). It can be the result of
-			various factors like fluid or gas exertion on a surface, atmospheric
-			weight, or even the force applied by individuals to persuade or influence
-			others.
+			<tab></tab>A substance with strong intermolecular interactions requires
+			more energy to transition from the liquid to the gas phase, which
+			increases the molar heat of vaporization.
 		</p>
-		<div class="c_callout">
-			<p>when the external pressure is:</p>
-			<ul>
-				<li>
-					The liquid's boiling point is lower than its typical boiling
-					point—less than one atmosphere.
-				</li>
-				<li>
-					The term "normal boiling point" refers to a liquid's boiling point
-					that is equivalent to one atmosphere.
-				</li>
-				<li>
-					The liquid's boiling point is higher than its typical boiling point
-					when it is greater than one atmosphere.
-				</li>
-			</ul>
+		<div class="callout">
+			Strong intermolecular interactions needs more energy to vaporize the
+			liquid.
 		</div>
 	</div>
 </div>
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/type-of-molecules.jpg" alt="impurities.jpg" />
+		<img
+			src="../assets/MHV/temperature.jpg"
+			alt="impurities.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">2. Types of Molecules</h3>
+		<h3 class="c_title">2. Temperature</h3>
 		<p class="c_desc">
-			<tab></tab>The boiling point of a liquid is determined by the kinds of
-			molecules that comprise it. In the event that molecules interact with one
-			another are: relatively strong, the boiling point will be relatively high.
-			relatively weak, the boiling point will be relatively low.
+			<tab></tab>Higher temperature decreases the molar heat of vaporization.
+		</p>
+	</div>
+</div>
+
+<div class="i_card cardleft">
+	<div class="c_image">
+		<img src="../assets/MHV/pressure.jpg" alt="temperature.jpg" data-ambient />
+	</div>
+	<div class="c_text">
+		<h3 class="c_title">3. Pressure</h3>
+		<p class="c_desc">
+			<tab></tab>Changes in pressure can impact a fluid's molar heat of
+			vaporization, especially in complex fluids like pastes or gels where
+			pressure affects their flow behavior.
 		</p>
 		<div class="c_callout">
-			<p>In the event that molecules interact with one another are:</p>
-			<ul>
-				<li>relatively strong, the boiling point will be relatively high.</li>
-				<li>relatively strong, the boiling point will be relatively high.</li>
-			</ul>
+			<tab></tab>Molar heat of vaporization can be influenced by pressure, where
+			the speed of fluid's particle movement affects its resistance to change
+			into gas.
 		</div>
 	</div>
 </div>
@@ -160,77 +183,111 @@
 <h3>WHO???</h3>
 <div class="who">
 	<div class="figure">
-		<img src="../assets/BP/ander-celcius.jpg" alt="agnes_pockels.jpg" />
-		<h6 class="wh-name">ANDERS CELCIUS</h6>
+		<img
+			src="../assets/MHV/germain-henri-hess.png"
+			alt="agnes_pockels.jpg"
+			data-ambient
+		/>
+		<h6 class="wh-name">Germain Henri Hess</h6>
 	</div>
-	<p class="wh-desc">
-		In order to work with mercury thermometers, Celsius created a
-		<emp> centigrade temperature scale </emp> that set the boiling and freezing
-		points of water at zero and one hundred degrees, respectively. In 1742, he
-		gave the Swedish Academy of Sciences a description of the new scale.
-	</p>
+	<div class="wh-desc">
+		<p>
+			<tab></tab>He established <emp>Hess's law</emp>, which asserts that a
+			reaction's enthalpy change is constant regardless of the reaction pathway,
+			as well as the notion of molar heat of vaporization to the field of
+			thermochemistry.
+		</p>
+		<!-- <p>
+			<tab></tab>This fundamental property, representing a fluid's resistance to
+			flow, transcended the boundaries of physics to profoundly impact medical
+			science.
+		</p>
+		<p>
+			<tab></tab>Poiseuille's work laid the foundation for future explorations
+			in fluid dynamics, making his contribution a cornerstone in our
+			comprehension of the behavior of both liquids and gases across various
+			scientific disciplines.
+		</p> -->
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/p9AbWeMbHZI?si=e0s3k_LF8Fjnn4X9"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+		></iframe>
+	</div>
 </div>
 
 <h3>Other Experiments:</h3>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/pressure-cooker.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MHV/refrigeration-systems.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">1. Pressure Cooker</h3>
+		<h3 class="c_title">1. Refrigeration Systems</h3>
 		<p class="c_desc">
-			<tab></tab>In practically every kitchen, pressure cooking is the most
-			popular cooking technique. It is also the most typical instance of boiling
-			in daily life. The water is heated inside a pressure cooker until it boils
-			and produces steam.
+			<tab></tab>In refrigeration, the refrigerant's molar heat of vaporization
+			allows it to absorb a significant amount of energy as it absorbs heat and
+			turns it into vapor.
 		</p>
 	</div>
 </div>
 
 <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/sugar-refining.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MHV/steam-power-plants.png"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">2. Sugar Refining</h3>
+		<h3 class="c_title">2. Steam Power Plants</h3>
 		<p class="c_desc">
-			<tab></tab>To get crystalline sugar, the extracted sugarcane juice needs
-			to be refined. There are times when cane juice or syrup must boil, and the
-			boiling point is determined by the amount of sugar present.
+			<tab></tab>The molar heat of vaporization determines the amount of energy
+			necessary to vaporize a specific amount of water at a fixed temperature.
 		</p>
 	</div>
 </div>
 
 <div class="i_card cardleft">
 	<div class="c_image">
-		<img src="../assets/BP/antifreeze.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MHV/steam-distillation-experiment.jpg"
+			alt="temperature.jpg"
+			data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">3. Antifreeze</h3>
+		<h3 class="c_title">3. Steam Distillation Experiment</h3>
 		<p class="c_desc">
-			<tab></tab>In essence, antifreeze is an additive that lowers the freezing
-			point of a water-based liquid when it is added. A coolant works because it
-			causes the system to boil over when the temperature of the coolant rises
-			to its boiling point. It raises the liquids' boiling points and stops
-			boilovers.
+			<tab></tab>Use steam to purify a liquid substance. Then determine the
+			amount of heat needed to cause the substance to evaporate and calculate
+			the molar heat of vaporization.
 		</p>
 	</div>
 </div>
 
-<div class="i_card cardright">
+<!-- <div class="i_card cardright">
 	<div class="c_image">
-		<img src="../assets/BP/boiling milk.jpg" alt="temperature.jpg" />
+		<img
+			src="../assets/MHMHV/absorption-experiment.jpg"
+			alt="temperature.jpg"
+			 data-ambient
+		/>
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">4. Boiling Milk</h3>
+		<h3 class="c_title">4. Viscosity and Pressure Demonstration</h3>
 		<p class="c_desc">
-			<tab></tab>Since fat is lighter than water, it rises to the surface of
-			heated milk along with protein in the form of cream. If milk is heated too
-			much, however, the expansion of water vapor creates pressure that pushes
-			up the creamy layer until the milk spills out. Despite the fact that the
-			boiling points of water and milk are fairly close, milk has a slightly
-			higher boiling point due to boiling point elevation.
+			<tab></tab>Demonstrate capillary action's role in absorption by observing
+			how water climbs up a sponge or paper towel against gravity.
 		</p>
 	</div>
-</div>
+</div> -->

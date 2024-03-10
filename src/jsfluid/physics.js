@@ -46,6 +46,17 @@ export const Physics = (bodies) => {
 		engine.timing.timeScale = scale;
 	};
 
+	const clearParticles = () => {
+		Composite.clear(engine.world);
+	};
+
+	const addComposite = (composite) => {
+		console.log(bodies);
+		composite.bodies.forEach((element) => {
+			Composite.add(engine.world, element);
+		});
+	};
+
 	const reSEAT = function () {
 		console.log("COMPOSITES");
 		console.log(engine);
@@ -63,5 +74,7 @@ export const Physics = (bodies) => {
 		timeScale,
 		reSEAT,
 		initialBodies,
+		clearParticles,
+		addComposite,
 	};
 };

@@ -24,9 +24,11 @@ import "./assets/redstone.png";
 import "./assets/screenshot.png";
 import "./assets/STEM.jpg";
 
-// import "./scripts/ambient.min.js";
+import { Ambient } from "./scripts/ambient.min.js";
 
 window.onload = () => {
+	var ambient = new Ambient({ blur: -10 });
+
 	let pageload = {
 		ignorehashchange: false,
 		loadUrl: function (event) {
@@ -202,6 +204,26 @@ window.onload = () => {
 					});
 
 				if (pagename !== "home") {
+					try {
+						let vid = document.getElementById("demo-vid");
+						vid.currentTime = 22;
+					} catch (error) {}
+
+					ambient.mount();
+					// VideoJS.setupAllWhenReady();
+					let iter = 4;
+
+					$("#change-liquid").on("click", () => {
+						console.log("CHANGING LIQUID");
+						// Matter.Composite.clear(engine.world, true);
+						Canvas.reset();
+						Canvas.init(pagename, iter % 3);
+						Canvas.draw();
+						iter++;
+
+						// replaceFluid();
+					});
+
 					// if (canvas !== null) {
 					// 	console.log("deleting pre physiscs");
 					// 	// canvas.particles = null;
@@ -268,6 +290,35 @@ window.onload = () => {
 						// window.alert("DRAG");
 					});
 				}
+
+				$("#myDropdown1").on("click", () => {
+					console.log("DROPDOWN CLICKED 1");
+					$("#myDropdown1").toggleClass("show");
+				});
+				$("#myDropdown2").on("click", () => {
+					console.log("DROPDOWN CLICKED 2");
+					$("#myDropdown2").toggleClass("show");
+				});
+
+				window.onclick = (e) => {
+					let myDropdown1 = document.getElementById("myDropdown1");
+					let myDropdown2 = document.getElementById("myDropdown2");
+					let t = [myDropdown1, myDropdown2];
+
+					t.forEach((element) => {
+						// console.log(element.previousElementSibling);
+						// console.log(e.target);
+						// console.log(element.previousElementSibling != e.target);
+						console.log("COMPARISON");
+						console.log(e.target);
+						console.log(element.previousElementSibling);
+						if (element.previousElementSibling != e.target) {
+							if (element.classList.contains("show")) {
+								element.classList.remove("show");
+							}
+						}
+					});
+				};
 			});
 		}
 		// caused_by_internal = false;
@@ -289,7 +340,9 @@ window.onload = () => {
 	// 	is_dragging = false;
 	// });
 
-	// changeHash(last_hash);
+	// changeHash(last_hash)
+	// ambient.mount();
+
 	changeContent(last_hash);
 
 	// when this is called, the onhashchange is called, which callchangecontent again, this time false.

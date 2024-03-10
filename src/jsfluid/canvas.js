@@ -4,9 +4,14 @@ import Matter from "matter-js";
 
 import { CA } from "../scripts/capillary-action.js";
 import { ST } from "../scripts/surface-tension.js";
+import { V } from "../scripts/viscosity.js";
+import { VP } from "../scripts/vapor-pressure.js";
+import { S } from "../scripts/sublimation.js";
+import { MP } from "../scripts/mellting-point.js";
 // const Composite = Matter.Composite;
 // const Composites = Matter.Composites;
 // const Body = Matter.Body;
+const Bodies = Matter.Bodies;
 // const Events = Matter.Events;
 // const Constraint = Matter.Constraint
 
@@ -20,7 +25,38 @@ export const Canvas = {
 	colors: ["#ffbf00", "#dc143c", "#8e2de2", "#2196f3", "#39ff14"],
 	colorIndex: -1,
 
-	init: function (demoName) {
+	// fluidToDrop: function (x, y, w, h, friction, frictionAir, frictionStatic) {
+	// 	// let composite = Matter.Composite.create();
+	// 	// let liquid = [];
+	// 	for (let index = 0; index < 200; index += 1) {
+	// 		// let blob_rad = 350;
+	// 		// let negator = Math.random() > 0.5 ? -1 : 1;
+	// 		// let random_degree = Math.PI * Math.random();
+
+	// 		let _x = (x + w) * Math.random(); // * negator; // 100 is offset
+	// 		let _y = (y + h) * Math.random(); // * negator;
+
+	// 		let circle = Bodies.circle(_x, _y, 15, {
+	// 			mass: 0,
+	// 			isStatic: false,
+	// 			friction: friction,
+	// 			frictionAir: frictionAir,
+	// 			frictionStatic: frictionStatic,
+	// 		});
+	// 		// liquid.push(circle);
+	// 		this.particles.push({ body: circle, fillstyle: this.colors[0] });
+	// 		// Matter.Composite.add(composite, circle);
+	// 	}
+
+	// 	// console.log(composite);
+
+	// 	// composite.label = "Soft Body";
+	// 	// return composite;
+	// 	console.log("PARTICLES GENERATED");
+	// 	console.log(this.particles);
+	// },
+
+	init: function (demoName, arrayIndex = 0) {
 		this.staticCanvas = document.querySelector("#static");
 		this.particlesCanvas = document.querySelector("#particles");
 		this.staticContext = this.staticCanvas.getContext("2d");
@@ -36,9 +72,18 @@ export const Canvas = {
 		// Matter.Constraint: https://brm.io/matter-js/docs/classes/Constraint.html
 		let demo = null;
 		let generateParticles = false;
+		let generateReplaceableParticles = false;
 		this.customParticleRadius = Config.particleRadius;
 		// this.staticBodies = [];
 		this.particles = [];
+
+		console.log(`DEMO NAME - ${demoName}`);
+
+		let map = [
+			[0, 0.01, 1, "skyblue"],
+			[1, 0.02, 5, "orange"],
+			[1, 0.1, 10, "yellow"],
+		];
 
 		if (demoName == "capillary-action") {
 			demo = CA;
@@ -47,15 +92,56 @@ export const Canvas = {
 			// console.log(CA);
 		} else if (demoName === "surface-tension") {
 			demo = ST;
+		} else if (demoName === "viscosity") {
+			// console.log("viscosity");
+			// this.customParticleRadius = 4;
+			// generateReplaceableParticles = true;
+
+			console.log("arrayIndex");
+			console.log(arrayIndex);
+			console.log(map[arrayIndex]);
+			demo = V;
+			demo.exampleInitialize(map[arrayIndex]);
+		} else if (demoName === "vapor-pressure") {
+			demo = VP;
+		} else if (demoName === "boiling-point") {
+			demo = VP;
+		} else if (demoName === "freezing-point") {
+		} else if (demoName === "melting-point") {
+			demo = MP;
+		} else if (demoName === "molar-heat-of-vaporization") {
+			demo = VP;
+		} else if (demoName === "sublimation") {
+			demo = S;
 		}
 
+		console.log("DEMO");
+		console.log(demo);
 		this.physics = demo.physics(Config.canvasHeight, Config.canvasWidth);
+
 		this.staticBodies = this.physics.initialBodies;
+
+		console.log(this.staticBodies);
+		console.log("PHYSICS");
+		console.log(this.physics);
+
+		this.particles = [];
 		if (generateParticles) {
 			console.log(this.physics);
-			this.particles = [];
 			this.addParticles();
 		}
+		// if (generateReplaceableParticles) {
+		// let t = this;
+		// console.log(t);
+		// function replaceFluid() {
+		// 	t.fluidToDrop(50, 50, 100, 100, 1, 0.1, 10);
+		// }
+		// $("#change-liquid").on("click", () => {
+		// 	t.clear();
+		// 	replaceFluid;
+		// });
+		// replaceFluid();
+		// }
 	},
 
 	addParticles: function () {
@@ -95,7 +181,7 @@ export const Canvas = {
 					];
 				})
 				.forEach((body) => {
-					this.particles.push({ body, fillStyle });
+					this.particles.push({ body: body, fillStyle: fillStyle });
 				});
 		}
 	},
@@ -116,15 +202,19 @@ export const Canvas = {
 
 		let th = this;
 
+		// console.log(this.staticBodies);
+
 		this.staticBodies.forEach((s) => {
 			let iteration = 0;
 
 			function drawparticle(s, staticContext, color = "#fff") {
 				staticContext.beginPath();
 				if (s.label === "Rectangle Body") {
-					if (s.isSensor && !s.isPartofTube) {
+					if (s.isSensor) {
+						// if (s.isSensor && !s.isPartofTube) {
 						return;
 					}
+					// console.log("drawing square");
 					staticContext.fillStyle = color;
 					staticContext.moveTo(s.vertices[0].x, s.vertices[0].y);
 					staticContext.lineTo(s.vertices[1].x, s.vertices[1].y);
@@ -132,7 +222,7 @@ export const Canvas = {
 					staticContext.lineTo(s.vertices[3].x, s.vertices[3].y);
 				}
 				if (s.label === "Circle Body") {
-					staticContext.fillStyle = color;
+					staticContext.fillStyle = s.fill !== undefined ? s.fill : color;
 					staticContext.arc(
 						s.position.x,
 						s.position.y,
@@ -188,6 +278,7 @@ export const Canvas = {
 			drawparticle(s, this.staticContext);
 		});
 
+		// console.log(this.particles);
 		for (let i = 0; i < this.particles.length; i++) {
 			const position = this.particles[i].body.position;
 

@@ -1,10 +1,11 @@
+<script type="module" crossorigin src="/scripts/ambient.min-be422996.js"></script>
 
 
 <h1 id="section-title">Surface Tension</h1>
 <!-- video -->
-<h2>Demonstration</h2>
+<h2>Demonstration</h2><p class="note">Animation w/ Fun DIY</p>
 <div class="video-wrapper">
-	<iframe
+	<!-- <iframe
 		width="700"
 		height="400"
 		src="https://www.youtube.com/embed/mtB8rfI2-qU?si=huuisI5xYpWCt82v"
@@ -12,18 +13,20 @@
 		frameborder="0"
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 		allowfullscreen
-	></iframe>
-	<!-- <video
-		src="../assets/ST/lv_0_20240305145347.mp4"
+	></iframe> -->
+	<video
+		src="../assets/DEMOS/ST-DEMO.mp4
+        "
 		width="900"
 		height="450"
 		id="demo-vid"
 		controls
+		preload="auto"
 		data-ambient
 	>
-		<source src="movie.ogg" type="video/ogg" />
+		<!-- <source src="movie.ogg" type="video/ogg" /> -->
 		Your browser does not support the video tag.
-	</video> -->
+	</video>
 </div>
 <!-- Canvas -->
 <h2>Experiment</h2>
@@ -115,7 +118,7 @@
 		<img src="/pages/surfactant.jpg" alt="surfactant.jpg" data-ambient />
 	</div>
 	<div class="c_text">
-		<h3 class="c_title">1. Surfarcants</h3>
+		<h3 class="c_title">1. Surfactants</h3>
 		<p class="c_desc">
 			<tab></tab>The term "surfactant" refers to surface-active agents. They are
 			amphiphilic compounds, with hydrophilic and hydrophobic chemical
@@ -176,12 +179,23 @@
 		/>
 		<h6 class="wh-name">Agnes Pockels</h6>
 	</div>
-	<p class="wh-desc">
-		<emp>Agnes Pockels</emp> is a self-trained chemist, an individual behind the
-		first discovery of the surface tension. She observed the swift movement of
-		water when soap came into contact with it, marking the day she made this
-		observation.
-	</p>
+	<div class="wh-desc">
+		<p>
+			<tab></tab><emp>Agnes Pockels</emp> is a self-trained chemist, an
+			individual behind the first discovery of the surface tension. She observed
+			the swift movement of water when soap came into contact with it, marking
+			the day she made this observation.
+		</p>
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/jPsgzfKb5Fc?si=ify6tb0HPM9DCuQZ"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+		></iframe>
+	</div>
 </div>
 
 <h3>Other Experiments:</h3>
@@ -265,11 +279,3 @@
 		</p>
 	</div>
 </div>
-
-<script>
-	let vid = document.getElementById("demo-vid");
-	vid.currentTime = 22;
-
-	var ambient = new Ambient({ blur: -10, retainAttributes: true });
-	ambient.mount();
-</script>

@@ -720,6 +720,8 @@ body {
     padding: 2em;
     border-radius: 10px;
 
+    justify-content: center;
+
     &.cardleft {
         flex-direction: row-reverse;
     }
@@ -730,7 +732,7 @@ body {
 
     .c_image {
         margin: 1em;
-        flex-basis: 100%;
+        // flex-basis: 100%;
 
         img {
             // border: 2px solid #04AA6D;
@@ -738,12 +740,16 @@ body {
             // border: 3px solid #42453f;
             border-radius: 5px;
             width: 100%;
+            min-width: 300px;
+            max-height: 300px;
             // height: 50%;
         }
     }
 
     .c_text {
         margin: 0 1em;
+        flex-basis: 500px;
+        flex-grow: 2;
 
         .c_title {
             font-size: 2em;
@@ -758,6 +764,13 @@ body {
             border-radius: 5px;
             margin-top: 3em;
             text-align: justify;
+
+            * {
+                margin: 0.1em;
+                padding: 0.1em;
+                padding-inline-start: 0.4em;
+                margin-block-start: 0.1em;
+            }
 
             // background: #FFDFEB;
             // border-left: 5px solid #ff0066;
@@ -776,6 +789,8 @@ body {
     background-color: #74956bbf;
     border-radius: 5px;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 
 
     .figure {
@@ -784,7 +799,7 @@ body {
         margin: 0 0 0 2em;
 
         img {
-            // max-height: 500px;
+            max-height: 500px;
             width: 100%;
             height: auto;
         }
@@ -799,11 +814,18 @@ body {
     .wh-desc {
         display: flex;
         flex-direction: column;
+        flex-basis: 500px;
+        flex-grow: 5;
+
+        padding: 1.5em 2em;
+        padding-left: 2em;
 
         iframe {
             align-self: center;
+            // width: fit-content;
             width: 100%;
-            height: auto;
+            // height: auto;
+            // margin: 0 1em;
 
         }
 
@@ -926,6 +948,18 @@ body {
     border-radius: 50%;
     background: #04AA6D;
     cursor: pointer;
+}
+
+emp {
+    font-weight: 1000;
+    // color: #ffb121
+    background: linear-gradient(-45deg, #ffb121, #ff8446, #ffd45f, #ff9317);
+    background-clip: text; // compatibility below
+    background-size: 300%;
+    -webkit-text-fill-color: transparent;
+    animation: animated_text 10s ease-in-out infinite;
+    -moz-animation: animated_text 10s ease-in-out infinite;
+    -webkit-animation: animated_text 10s ease-in-out infinite;
 }
 
 @import "./_responsive.scss";
